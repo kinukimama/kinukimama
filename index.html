@@ -3,973 +3,372 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="キヌキママ｜自由が丘の完全個室・女性専用リラクゼーションサロン。セラピスト歴20年のオーナーによる上質なオーダーメイドケア。オイルリンパ・もみほぐし・フェイシャル・足つぼ。">
+<meta name="description" content="キヌキママ｜自由が丘の完全個室・女性専用リラクゼーションサロン。絹セリシンを使った上質なオーダーメイドケア。セラピスト歴20年。">
 <title>kinukimama｜キヌキママ 自由が丘</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&family=Cormorant:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Shippori+Mincho:wght@400;500;600&family=Cormorant:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ivory: #F7F3EC;
-    --cream: #EDE5D8;
-    --gold: #B8965A;
-    --gold-light: #D4B483;
-    --green: #2A3D34;
-    --green-mid: #3D5548;
-    --green-light: #7A9B8A;
-    --text: #2C2C2C;
-    --text-light: #6B6257;
-    --white: #FDFAF6;
+    --ivory:#F8F4ED; --cream:#EDE5D4; --cream-dark:#DDD0B8;
+    --gold:#B8965A; --gold-light:#D4B483; --gold-pale:#EDD9A8;
+    --green:#243028; --green-mid:#334D3E; --green-light:#5C7D6A;
+    --silk-white:#FAF7F2; --text:#2A2A2A; --text-mid:#4E4840; --text-light:#7A6E62;
+    --white:#FDFAF5;
   }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Shippori Mincho',serif;background:var(--white);color:var(--text);overflow-x:hidden;}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* SILK TEXTURE */
+  .silk-overlay{position:fixed;inset:0;pointer-events:none;z-index:0;background:repeating-linear-gradient(105deg,transparent 0px,rgba(212,180,131,0.018) 1px,transparent 2px,transparent 8px);}
 
-  html { scroll-behavior: smooth; }
+  /* LOADER */
+  .loader{position:fixed;inset:0;z-index:9999;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;transition:opacity 0.9s ease 0.6s,visibility 0.9s ease 0.6s;}
+  .loader.hidden{opacity:0;visibility:hidden;}
+  .loader-en{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3vw,2rem);font-style:italic;color:var(--gold-light);letter-spacing:0.5em;font-weight:300;animation:fadeUp 1.2s ease forwards;}
+  .loader-ja{font-size:0.68rem;font-weight:200;color:rgba(212,180,131,0.4);letter-spacing:0.5em;animation:fadeUp 1.2s ease 0.2s forwards;opacity:0;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
-  body {
-    font-family: 'Noto Serif JP', serif;
-    background: var(--white);
-    color: var(--text);
-    overflow-x: hidden;
-  }
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.8rem 5rem;display:flex;align-items:center;justify-content:space-between;transition:background 0.5s,padding 0.4s,border 0.5s;}
+  nav.scrolled{background:rgba(248,244,237,0.96);backdrop-filter:blur(12px);padding:1rem 5rem;border-bottom:1px solid rgba(184,150,90,0.18);}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;font-style:italic;letter-spacing:0.12em;color:var(--silk-white);text-decoration:none;transition:color 0.3s;}
+  nav.scrolled .nav-logo{color:var(--green);}
+  .nav-center{display:flex;gap:3rem;list-style:none;}
+  .nav-center a{font-family:'Cormorant Garamond',serif;font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(250,247,242,0.75);text-decoration:none;transition:color 0.3s;}
+  nav.scrolled .nav-center a{color:var(--text-light);}
+  .nav-center a:hover{color:var(--gold-light)!important;}
+  .nav-btn{font-family:'Cormorant Garamond',serif;font-size:0.75rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(212,180,131,0.6);padding:0.55rem 1.6rem;text-decoration:none;transition:all 0.3s;}
+  .nav-btn:hover{background:var(--gold-light);color:var(--green);}
+  nav.scrolled .nav-btn{color:var(--gold);border-color:var(--gold);}
 
-  /* ─── LOADING ─── */
-  .loader {
-    position: fixed; inset: 0;
-    background: var(--green);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.8s ease 0.5s, visibility 0.8s ease 0.5s;
-  }
-  .loader.hidden { opacity: 0; visibility: hidden; }
-  .loader-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    color: var(--gold-light);
-    letter-spacing: 0.4em;
-    font-weight: 300;
-    animation: loaderFade 1.2s ease-in-out;
-  }
-  @keyframes loaderFade {
-    0% { opacity: 0; transform: translateY(10px); }
-    50% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 1; }
-  }
+  /* HERO */
+  .hero{height:100vh;min-height:720px;position:relative;display:flex;align-items:flex-end;overflow:hidden;background:var(--green);}
+  .hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,rgba(36,48,40,0.88) 0%,rgba(36,48,40,0.45) 55%,rgba(36,48,40,0.75) 100%),url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1800&q=85') center/cover no-repeat;}
+  .hero-shimmer{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 65% 25%,rgba(212,180,131,0.18) 0%,transparent 55%),radial-gradient(ellipse at 30% 70%,rgba(184,150,90,0.08) 0%,transparent 45%);animation:shimmer 8s ease-in-out infinite alternate;}
+  @keyframes shimmer{from{opacity:0.6}to{opacity:1}}
+  .hero-silk-lines{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(115deg,transparent 0px,rgba(212,180,131,0.04) 1px,transparent 2px,transparent 60px);}
+  .hero-content{position:relative;z-index:2;padding:0 5rem 9rem;max-width:760px;opacity:0;transform:translateY(28px);animation:heroIn 1.2s ease forwards 1.6s;}
+  @keyframes heroIn{to{opacity:1;transform:translateY(0)}}
+  .hero-silk-mark{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;}
+  .hero-silk-line{width:32px;height:1px;background:var(--gold-light);}
+  .hero-silk-text{font-family:'Cormorant Garamond',serif;font-size:0.68rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold-light);font-weight:300;}
+  .hero-title{font-family:'Shippori Mincho',serif;font-size:clamp(2.6rem,5.5vw,4.4rem);font-weight:200;line-height:1.55;color:var(--silk-white);letter-spacing:0.04em;margin-bottom:2.2rem;}
+  .hero-title em{font-style:normal;background:linear-gradient(90deg,var(--gold-pale),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero-sub{font-size:clamp(0.78rem,1.1vw,0.9rem);font-weight:300;color:rgba(250,247,242,0.7);line-height:2.1;letter-spacing:0.07em;margin-bottom:3rem;}
+  .hero-cta{display:inline-flex;align-items:center;gap:1.2rem;font-family:'Cormorant Garamond',serif;font-size:0.88rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--ivory);text-decoration:none;border-bottom:1px solid rgba(212,180,131,0.5);padding-bottom:0.5rem;transition:all 0.35s;}
+  .hero-cta:hover{color:var(--gold-light);letter-spacing:0.42em;border-color:var(--gold-light);}
+  .hero-scroll{position:absolute;right:5rem;bottom:4rem;display:flex;flex-direction:column;align-items:center;gap:1rem;z-index:2;opacity:0;animation:heroIn 1s ease forwards 2.4s;}
+  .hero-scroll span{font-family:'Cormorant Garamond',serif;font-size:0.6rem;letter-spacing:0.35em;color:rgba(250,247,242,0.45);text-transform:uppercase;writing-mode:vertical-rl;}
+  .scroll-bar{width:1px;height:64px;background:linear-gradient(to bottom,var(--gold-light),transparent);animation:scrollAnim 2.2s ease-in-out infinite;}
+  @keyframes scrollAnim{0%{transform:scaleY(0);transform-origin:top;opacity:1}45%{transform:scaleY(1);transform-origin:top}46%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom;opacity:0.3}}
 
-  /* ─── NAV ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1.5rem 4rem;
-    display: flex; align-items: center; justify-content: space-between;
-    transition: background 0.4s ease, padding 0.4s ease;
-  }
-  nav.scrolled {
-    background: rgba(247, 243, 236, 0.95);
-    backdrop-filter: blur(8px);
-    padding: 1rem 4rem;
-    border-bottom: 1px solid rgba(184, 150, 90, 0.2);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  nav.scrolled .nav-logo { color: var(--green); }
-  .nav-links {
-    display: flex; gap: 2.5rem; list-style: none;
-  }
-  .nav-links a {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.2em;
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-  nav.scrolled .nav-links a { color: var(--text-light); }
-  .nav-links a:hover { color: var(--gold-light); }
-  nav.scrolled .nav-links a:hover { color: var(--gold); }
-  .nav-reserve {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.25em;
-    color: var(--gold-light);
-    border: 1px solid var(--gold-light);
-    padding: 0.5rem 1.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 0.3s;
-  }
-  .nav-reserve:hover {
-    background: var(--gold-light);
-    color: var(--green);
-  }
-  nav.scrolled .nav-reserve {
-    color: var(--gold);
-    border-color: var(--gold);
-  }
+  /* SHARED */
+  .label{font-family:'Cormorant Garamond',serif;font-size:0.68rem;letter-spacing:0.48em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem;}
+  .title-jp{font-family:'Shippori Mincho',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:300;line-height:1.65;letter-spacing:0.04em;}
+  .title-en-bg{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;font-style:italic;line-height:1;letter-spacing:0.04em;color:var(--cream);display:block;margin-bottom:-0.8rem;}
+  .bar{width:36px;height:1px;background:var(--gold);margin:2rem 0;}
+  .body-text{font-size:clamp(0.82rem,1.1vw,0.92rem);font-weight:300;line-height:2.3;color:var(--text-light);}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.9s ease,transform 0.9s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
 
-  /* ─── HERO ─── */
-  .hero {
-    height: 100vh;
-    min-height: 700px;
-    position: relative;
-    display: flex; align-items: flex-end;
-    overflow: hidden;
-    background: var(--green);
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: 
-      linear-gradient(135deg, rgba(42,61,52,0.85) 0%, rgba(42,61,52,0.4) 50%, rgba(42,61,52,0.7) 100%),
-      url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1600&q=80') center/cover no-repeat;
-  }
-  .hero-silk {
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 70% 30%, rgba(184,150,90,0.15) 0%, transparent 60%);
-  }
-  .hero-content {
-    position: relative; z-index: 2;
-    padding: 0 4rem 8rem;
-    max-width: 720px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: heroReveal 1.2s ease forwards 1.5s;
-  }
-  @keyframes heroReveal {
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-en {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
-    letter-spacing: 0.4em;
-    color: var(--gold-light);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    display: block;
-  }
-  .hero-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--ivory);
-    margin-bottom: 2rem;
-    letter-spacing: 0.05em;
-  }
-  .hero-title em {
-    font-style: normal;
-    color: var(--gold-light);
-  }
-  .hero-sub {
-    font-family: 'Noto Serif JP', serif;
-    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
-    font-weight: 300;
-    color: rgba(237,229,216,0.8);
-    line-height: 2;
-    letter-spacing: 0.08em;
-    margin-bottom: 3rem;
-  }
-  .hero-cta {
-    display: inline-flex; align-items: center; gap: 1rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    letter-spacing: 0.3em;
-    color: var(--ivory);
-    text-decoration: none;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--gold-light);
-    padding-bottom: 0.5rem;
-    transition: all 0.3s;
-  }
-  .hero-cta:hover { color: var(--gold-light); letter-spacing: 0.4em; }
-  .hero-scroll {
-    position: absolute;
-    right: 4rem; bottom: 4rem;
-    display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
-    z-index: 2;
-    opacity: 0;
-    animation: heroReveal 1s ease forwards 2.2s;
-  }
-  .hero-scroll span {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    color: rgba(237,229,216,0.6);
-    text-transform: uppercase;
-    writing-mode: vertical-rl;
-  }
-  .scroll-line {
-    width: 1px; height: 60px;
-    background: linear-gradient(to bottom, var(--gold-light), transparent);
-    animation: scrollDown 2s ease-in-out infinite;
-  }
-  @keyframes scrollDown {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-  }
+  /* SILK INTRO */
+  .silk-intro{background:var(--green);padding:8rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;position:relative;overflow:hidden;}
+  .silk-intro::before{content:'絹';position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'Shippori Mincho',serif;font-size:28vw;font-weight:200;color:rgba(255,255,255,0.025);line-height:1;pointer-events:none;user-select:none;}
+  .silk-intro-text{position:relative;z-index:1;}
+  .silk-intro .label{color:var(--gold-light);}
+  .silk-intro .title-jp{color:var(--ivory);}
+  .silk-intro .title-en-bg{color:rgba(212,180,131,0.15);}
+  .silk-intro .bar{background:var(--gold-light);}
+  .silk-visual{position:relative;height:520px;z-index:1;}
+  .silk-block-main{position:absolute;right:0;top:0;width:82%;height:78%;background:linear-gradient(135deg,#4A6356 0%,#243028 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .silk-block-main::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0px,rgba(212,180,131,0.06) 1px,transparent 2px,transparent 40px);}
+  .silk-kanji{font-family:'Shippori Mincho',serif;font-size:8rem;font-weight:200;color:rgba(212,180,131,0.2);letter-spacing:0.1em;position:relative;z-index:1;}
+  .silk-block-accent{position:absolute;left:0;bottom:0;width:42%;height:48%;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;padding:2rem;}
+  .silk-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;font-style:italic;color:var(--green);line-height:1;}
+  .silk-num-label{font-size:0.62rem;letter-spacing:0.25em;color:rgba(36,48,40,0.6);text-align:center;}
 
-  /* ─── SECTION BASE ─── */
-  section { position: relative; }
-  .section-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.45em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-    display: block;
-  }
-  .section-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-weight: 300;
-    line-height: 1.6;
-    letter-spacing: 0.05em;
-    color: var(--green);
-  }
-  .section-title-en {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--cream);
-    letter-spacing: 0.05em;
-    line-height: 1;
-    margin-bottom: -0.5rem;
-    display: block;
-  }
-  .divider {
-    width: 40px; height: 1px;
-    background: var(--gold);
-    margin: 2rem 0;
-  }
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  /* STORY */
+  .story{background:var(--ivory);padding:10rem 5rem;}
+  .story-inner{max-width:920px;margin:0 auto;}
+  .story-header{text-align:center;margin-bottom:6rem;}
+  .story-block{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--cream-dark);padding:5rem 0;align-items:center;}
+  .story-block:last-child{border-bottom:1px solid var(--cream-dark);}
+  .story-block:nth-child(even) .sbt{order:2;padding-left:4rem;}
+  .story-block:nth-child(even) .sbv{order:1;}
+  .story-block:nth-child(odd) .sbt{padding-right:4rem;}
+  .story-block-num{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;font-style:italic;color:var(--cream-dark);line-height:1;margin-bottom:1.5rem;display:block;}
+  .story-block-title{font-size:1.1rem;font-weight:500;color:var(--green);letter-spacing:0.06em;margin-bottom:1.2rem;}
+  .sbv{height:280px;background:linear-gradient(135deg,var(--cream) 0%,var(--cream-dark) 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  .sbv::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(110deg,transparent 0px,rgba(184,150,90,0.08) 1px,transparent 2px,transparent 30px);}
+  .sbv-en{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.55);letter-spacing:0.05em;position:relative;z-index:1;}
+  .story-block.dark .sbv{background:linear-gradient(135deg,#3D5548 0%,#243028 100%);}
+  .story-block.dark .sbv-en{color:rgba(212,180,131,0.28);}
 
-  /* ─── CONCEPT ─── */
-  .concept {
-    padding: 10rem 4rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-    background: var(--white);
-  }
-  .concept-text { max-width: 480px; }
-  .concept-body {
-    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-    font-weight: 300;
-    line-height: 2.2;
-    color: var(--text-light);
-    margin-top: 2rem;
-  }
-  .concept-body strong {
-    color: var(--green);
-    font-weight: 500;
-  }
-  .concept-visual {
-    position: relative;
-    height: 560px;
-  }
-  .concept-img-main {
-    position: absolute;
-    right: 0; top: 0;
-    width: 80%; height: 85%;
-    object-fit: cover;
-    background: linear-gradient(135deg, var(--cream) 0%, var(--green-light) 100%);
-  }
-  .concept-img-accent {
-    position: absolute;
-    left: 0; bottom: 0;
-    width: 45%; height: 50%;
-    background: var(--green);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .concept-img-accent-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--gold-light);
-    letter-spacing: 0.05em;
-    text-align: center;
-    line-height: 1.2;
-  }
-  .concept-img-accent-sub {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    color: rgba(212,180,131,0.6);
-    margin-top: 0.5rem;
-    display: block;
-    text-align: center;
-  }
+  /* FEATURES */
+  .features{background:var(--green);padding:8rem 5rem;position:relative;overflow:hidden;}
+  .features::before{content:'SILK';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:22vw;font-weight:300;font-style:italic;color:rgba(255,255,255,0.02);pointer-events:none;user-select:none;white-space:nowrap;}
+  .features-header{text-align:center;margin-bottom:5rem;position:relative;z-index:1;}
+  .features-header .label{color:var(--gold-light);}
+  .features-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(184,150,90,0.25);position:relative;z-index:1;}
+  .feat{padding:3.5rem 3rem;border-right:1px solid rgba(184,150,90,0.25);transition:background 0.35s;}
+  .feat:last-child{border-right:none;}
+  .feat:hover{background:rgba(184,150,90,0.07);}
+  .feat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;font-style:italic;color:rgba(184,150,90,0.28);line-height:1;margin-bottom:1.4rem;}
+  .feat-title{font-size:0.95rem;font-weight:500;color:var(--gold-light);letter-spacing:0.08em;margin-bottom:0.9rem;}
+  .feat-body{font-size:0.8rem;font-weight:300;line-height:2.1;color:rgba(250,247,242,0.6);}
 
-  /* ─── FEATURES ─── */
-  .features {
-    background: var(--green);
-    padding: 8rem 4rem;
-  }
-  .features-header {
-    text-align: center;
-    margin-bottom: 6rem;
-  }
-  .features-header .section-title { color: var(--ivory); }
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border: 1px solid rgba(184,150,90,0.3);
-  }
-  .feature-item {
-    padding: 3.5rem 3rem;
-    border-right: 1px solid rgba(184,150,90,0.3);
-    transition: background 0.3s;
-  }
-  .feature-item:last-child { border-right: none; }
-  .feature-item:hover { background: rgba(184,150,90,0.08); }
-  .feature-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 300;
-    color: rgba(184,150,90,0.3);
-    line-height: 1;
-    margin-bottom: 1.5rem;
-  }
-  .feature-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--gold-light);
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
-  }
-  .feature-text {
-    font-size: 0.82rem;
-    font-weight: 300;
-    line-height: 2;
-    color: rgba(237,229,216,0.7);
-  }
+  /* MENU */
+  .menu{padding:10rem 5rem;background:var(--silk-white);}
+  .menu-head{display:grid;grid-template-columns:300px 1fr;gap:5rem;align-items:end;margin-bottom:5rem;}
+  .menu-intro{font-size:0.83rem;font-weight:300;line-height:2.2;color:var(--text-light);}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+  .menu-card{background:var(--white);padding:3rem;position:relative;overflow:hidden;transition:transform 0.3s;}
+  .menu-card:hover{transform:translateY(-3px);}
+  .menu-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold-pale),var(--gold));transform:scaleY(0);transform-origin:bottom;transition:transform 0.4s ease;}
+  .menu-card:hover::before{transform:scaleY(1);}
+  .menu-card-silk{position:absolute;right:1.5rem;top:1.5rem;font-family:'Cormorant Garamond',serif;font-size:0.6rem;letter-spacing:0.28em;color:var(--gold);opacity:0.5;text-transform:uppercase;}
+  .menu-en{font-family:'Cormorant Garamond',serif;font-size:0.68rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:0.8rem;}
+  .menu-name{font-size:1.05rem;font-weight:500;color:var(--green);letter-spacing:0.04em;margin-bottom:0.9rem;}
+  .menu-desc{font-size:0.8rem;font-weight:300;line-height:1.95;color:var(--text-light);margin-bottom:1.5rem;}
+  .menu-price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--green);}
+  .menu-price small{font-size:0.72rem;font-family:'Shippori Mincho',serif;font-weight:300;color:var(--text-light);margin-left:0.3rem;}
+  .menu-note{margin-top:3rem;padding:1.8rem 2.5rem;background:var(--cream);border-left:2px solid var(--gold);font-size:0.78rem;font-weight:300;color:var(--text-light);line-height:2;}
 
-  /* ─── MENU ─── */
-  .menu {
-    padding: 10rem 4rem;
-    background: var(--ivory);
-  }
-  .menu-header {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    align-items: end;
-    margin-bottom: 6rem;
-  }
-  .menu-intro {
-    font-size: 0.85rem;
-    font-weight: 300;
-    line-height: 2;
-    color: var(--text-light);
-  }
-  .menu-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-  .menu-item {
-    background: var(--white);
-    padding: 3rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    cursor: default;
-  }
-  .menu-item:hover { transform: translateY(-4px); }
-  .menu-item::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--gold);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 0.4s ease;
-  }
-  .menu-item:hover::before { transform: scaleY(1); }
-  .menu-item-en {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
-    display: block;
-  }
-  .menu-item-name {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--green);
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-  }
-  .menu-item-desc {
-    font-size: 0.8rem;
-    font-weight: 300;
-    line-height: 1.9;
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-  }
-  .menu-item-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--green);
-    letter-spacing: 0.05em;
-  }
-  .menu-item-price span {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 300;
-    margin-left: 0.3rem;
-  }
-  .menu-note {
-    margin-top: 3rem;
-    padding: 2rem 3rem;
-    background: var(--cream);
-    font-size: 0.8rem;
-    font-weight: 300;
-    color: var(--text-light);
-    line-height: 2;
-    border-left: 2px solid var(--gold);
-  }
+  /* FLOW */
+  .flow{background:var(--ivory);padding:10rem 5rem;}
+  .flow-header{text-align:center;margin-bottom:6rem;}
+  .flow-steps{max-width:860px;margin:0 auto;display:flex;flex-direction:column;}
+  .flow-step{display:grid;grid-template-columns:80px 1fr;gap:3rem;padding:3rem 0;border-bottom:1px solid var(--cream-dark);align-items:start;position:relative;}
+  .flow-step::before{content:'';position:absolute;left:38px;top:5rem;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent);}
+  .flow-step:last-child::before{display:none;}
+  .flow-step:last-child{border-bottom:none;}
+  .flow-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;font-style:italic;color:var(--gold);line-height:1;text-align:center;}
+  .flow-title{font-size:1rem;font-weight:500;color:var(--green);letter-spacing:0.06em;margin-bottom:0.8rem;}
+  .flow-body{font-size:0.82rem;font-weight:300;line-height:2.1;color:var(--text-light);}
+  .flow-body em{font-style:normal;color:var(--gold);border-bottom:1px dotted var(--gold-light);}
 
-  /* ─── ABOUT ─── */
-  .about {
-    padding: 10rem 4rem;
-    background: var(--white);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
-    align-items: center;
-  }
-  .about-visual {
-    position: relative;
-    height: 600px;
-  }
-  .about-img-bg {
-    position: absolute;
-    left: 0; top: 4rem;
-    width: 75%; height: 75%;
-    background: var(--cream);
-  }
-  .about-img-front {
-    position: absolute;
-    right: 0; bottom: 0;
-    width: 70%; height: 80%;
-    background: linear-gradient(160deg, var(--green-mid) 0%, var(--green) 100%);
-    display: flex; align-items: center; justify-content: center; flex-direction: column;
-    gap: 1rem;
-    padding: 3rem;
-  }
-  .about-quote {
-    font-family: 'Cormorant', serif;
-    font-size: clamp(1.2rem, 2vw, 1.6rem);
-    font-style: italic;
-    color: var(--gold-light);
-    text-align: center;
-    line-height: 1.6;
-  }
-  .about-quote-ja {
-    font-size: 0.75rem;
-    font-weight: 300;
-    color: rgba(237,229,216,0.6);
-    letter-spacing: 0.15em;
-    text-align: center;
-  }
-  .about-text { }
-  .about-profile {
-    display: flex; align-items: center; gap: 1.5rem;
-    margin-top: 3rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--cream);
-  }
-  .about-profile-icon {
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    background: var(--cream);
-    border: 2px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .about-profile-icon span {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    color: var(--gold);
-    font-style: italic;
-  }
-  .about-profile-name {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--green);
-    letter-spacing: 0.05em;
-  }
-  .about-profile-role {
-    font-size: 0.75rem;
-    font-weight: 300;
-    color: var(--text-light);
-    letter-spacing: 0.15em;
-    margin-top: 0.2rem;
-  }
-  .about-body {
-    font-size: 0.88rem;
-    font-weight: 300;
-    line-height: 2.3;
-    color: var(--text-light);
-    margin-top: 2rem;
-  }
+  /* ABOUT */
+  .about{padding:10rem 5rem;background:var(--silk-white);display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center;}
+  .about-visual{position:relative;height:580px;}
+  .av-back{position:absolute;left:0;top:4rem;width:72%;height:72%;background:var(--cream);}
+  .av-front{position:absolute;right:0;bottom:0;width:68%;height:78%;background:linear-gradient(150deg,#3D5548,#243028);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:3rem;overflow:hidden;}
+  .av-front::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0px,rgba(212,180,131,0.06) 1px,transparent 2px,transparent 45px);}
+  .av-quote{font-family:'Cormorant',serif;font-style:italic;font-size:clamp(1rem,1.6vw,1.3rem);color:var(--gold-light);text-align:center;line-height:1.7;position:relative;z-index:1;}
+  .av-quote-ja{font-size:0.7rem;font-weight:200;color:rgba(212,180,131,0.45);text-align:center;letter-spacing:0.12em;position:relative;z-index:1;}
+  .about-profile{display:flex;align-items:center;gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--cream);}
+  .profile-icon{width:52px;height:52px;border-radius:50%;background:var(--cream);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .profile-icon span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);font-style:italic;}
+  .profile-name{font-size:0.92rem;font-weight:500;color:var(--green);}
+  .profile-role{font-size:0.72rem;font-weight:300;color:var(--text-light);letter-spacing:0.12em;margin-top:0.2rem;}
 
-  /* ─── SILK BAND ─── */
-  .silk-band {
-    background: var(--cream);
-    padding: 5rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
-    overflow: hidden;
-  }
-  .silk-band-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--green);
-    letter-spacing: 0.05em;
-  }
-  .silk-band-ja {
-    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
-    font-weight: 300;
-    color: var(--text-light);
-    letter-spacing: 0.1em;
-    max-width: 400px;
-    line-height: 2;
-  }
-  .silk-band-divider {
-    width: 1px; height: 80px;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
+  /* SILK BAND */
+  .silk-band{background:var(--green);overflow:hidden;position:relative;}
+  .silk-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(105deg,transparent 0px,rgba(212,180,131,0.05) 1px,transparent 2px,transparent 60px);}
+  .silk-band-inner{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;position:relative;z-index:1;}
+  .silk-band-item{padding:5rem 4rem;text-align:center;}
+  .silk-band-div{background:rgba(184,150,90,0.3);}
+  .silk-band-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;font-style:italic;color:var(--gold-light);line-height:1;display:block;margin-bottom:0.5rem;}
+  .silk-band-lbl{font-size:0.7rem;font-weight:300;color:rgba(212,180,131,0.45);letter-spacing:0.25em;display:block;margin-bottom:1rem;}
+  .silk-band-desc{font-size:0.78rem;font-weight:300;color:rgba(250,247,242,0.45);line-height:1.9;}
 
-  /* ─── VOICE ─── */
-  .voice {
-    padding: 10rem 4rem;
-    background: var(--green);
-  }
-  .voice-header {
-    text-align: center;
-    margin-bottom: 5rem;
-  }
-  .voice-header .section-title { color: var(--ivory); }
-  .voice-rating {
-    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-    margin-top: 1rem;
-  }
-  .star { color: var(--gold); font-size: 1.1rem; }
-  .voice-score {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    color: var(--gold-light);
-    font-weight: 300;
-    margin-left: 0.5rem;
-  }
-  .voice-count {
-    font-size: 0.75rem;
-    color: rgba(237,229,216,0.5);
-    font-weight: 300;
-  }
-  .voice-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .voice-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(184,150,90,0.2);
-    padding: 2.5rem;
-    transition: background 0.3s;
-  }
-  .voice-card:hover { background: rgba(184,150,90,0.08); }
-  .voice-card-text {
-    font-size: 0.83rem;
-    font-weight: 300;
-    line-height: 2;
-    color: rgba(237,229,216,0.8);
-    margin-bottom: 1.5rem;
-  }
-  .voice-card-from {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
+  /* VOICE */
+  .voice{padding:10rem 5rem;background:var(--ivory);}
+  .voice-header{text-align:center;margin-bottom:5rem;}
+  .voice-rating{display:flex;align-items:center;justify-content:center;gap:0.4rem;margin-top:1.2rem;}
+  .star{color:var(--gold);font-size:1rem;}
+  .voice-score{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:300;margin-left:0.4rem;}
+  .voice-count{font-size:0.72rem;color:var(--text-light);font-weight:300;}
+  .voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .voice-card{background:var(--white);padding:2.5rem;border:1px solid var(--cream-dark);position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s;}
+  .voice-card:hover{border-color:var(--gold-light);transform:translateY(-3px);}
+  .voice-card::before{content:'"';position:absolute;right:1.5rem;top:-0.5rem;font-family:'Cormorant Garamond',serif;font-size:6rem;color:var(--cream);line-height:1;font-style:italic;pointer-events:none;}
+  .voice-text{font-size:0.82rem;font-weight:300;line-height:2;color:var(--text-light);margin-bottom:1.5rem;position:relative;z-index:1;}
+  .voice-from{font-family:'Cormorant Garamond',serif;font-size:0.72rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;}
 
-  /* ─── SHOP ─── */
-  .shop {
-    padding: 8rem 4rem;
-    background: var(--ivory);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-  .shop-visual {
-    background: var(--green);
-    height: 400px;
-    display: flex; align-items: center; justify-content: center; flex-direction: column;
-    gap: 1rem;
-    padding: 3rem;
-  }
-  .shop-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-style: italic;
-    color: var(--gold-light);
-    letter-spacing: 0.1em;
-  }
-  .shop-brand-sub {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    color: rgba(212,180,131,0.5);
-  }
-  .shop-body {
-    font-size: 0.85rem;
-    font-weight: 300;
-    line-height: 2.2;
-    color: var(--text-light);
-    margin-top: 1.5rem;
-  }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.8rem;
-    margin-top: 2.5rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.3em;
-    color: var(--white);
-    background: var(--green);
-    border: none;
-    padding: 1rem 2.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .btn-primary:hover { background: var(--green-mid); letter-spacing: 0.4em; }
-  .btn-outline {
-    display: inline-flex; align-items: center; gap: 0.8rem;
-    margin-top: 2.5rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.3em;
-    color: var(--green);
-    background: transparent;
-    border: 1px solid var(--green);
-    padding: 1rem 2.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .btn-outline:hover { background: var(--green); color: var(--white); }
+  /* SHOP */
+  .shop{padding:10rem 5rem;background:var(--green);display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;position:relative;overflow:hidden;}
+  .shop::before{content:'きぬもよふ';position:absolute;right:-2rem;bottom:0;font-family:'Shippori Mincho',serif;font-size:12vw;font-weight:200;color:rgba(255,255,255,0.025);white-space:nowrap;pointer-events:none;user-select:none;}
+  .shop-visual{height:420px;background:rgba(255,255,255,0.04);border:1px solid rgba(184,150,90,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:3rem;position:relative;overflow:hidden;z-index:1;}
+  .shop-visual::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0px,rgba(212,180,131,0.06) 1px,transparent 2px,transparent 40px);}
+  .shop-brand-en{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-style:italic;font-weight:300;color:var(--gold-light);letter-spacing:0.12em;position:relative;z-index:1;}
+  .shop-brand-ja{font-family:'Shippori Mincho',serif;font-size:1.2rem;font-weight:200;color:rgba(212,180,131,0.6);letter-spacing:0.3em;position:relative;z-index:1;}
+  .shop-brand-sub{font-size:0.62rem;letter-spacing:0.35em;color:rgba(212,180,131,0.3);text-transform:uppercase;position:relative;z-index:1;}
+  .shop-text{position:relative;z-index:1;}
+  .shop .label{color:var(--gold-light);}
+  .shop .title-en-bg{color:rgba(212,180,131,0.12);}
+  .shop .bar{background:var(--gold-light);}
+  .shop .body-text strong{color:var(--gold-light);font-weight:400;}
+  .btn-outline-light{display:inline-flex;align-items:center;gap:0.8rem;margin-top:2.5rem;font-family:'Cormorant Garamond',serif;font-size:0.82rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(212,180,131,0.45);padding:0.9rem 2.2rem;text-decoration:none;transition:all 0.3s;}
+  .btn-outline-light:hover{background:var(--gold-light);color:var(--green);border-color:var(--gold-light);}
 
-  /* ─── ACCESS ─── */
-  .access {
-    padding: 10rem 4rem;
-    background: var(--white);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-  }
-  .access-map {
-    width: 100%;
-    height: 400px;
-    background: var(--cream);
-    border: 1px solid rgba(184,150,90,0.2);
-    overflow: hidden;
-    position: relative;
-  }
-  .access-map iframe {
-    width: 100%; height: 100%;
-    border: none;
-    filter: sepia(20%) saturate(80%);
-  }
-  .access-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 2rem;
-  }
-  .access-table tr {
-    border-bottom: 1px solid var(--cream);
-  }
-  .access-table td {
-    padding: 1.2rem 0;
-    font-size: 0.83rem;
-    font-weight: 300;
-    color: var(--text-light);
-    line-height: 1.8;
-    vertical-align: top;
-  }
-  .access-table td:first-child {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    color: var(--gold);
-    text-transform: uppercase;
-    white-space: nowrap;
-    padding-right: 2rem;
-    width: 100px;
-    padding-top: 1.4rem;
-  }
-  .access-note {
-    margin-top: 2rem;
-    padding: 1.5rem 2rem;
-    background: var(--ivory);
-    font-size: 0.78rem;
-    font-weight: 300;
-    color: var(--text-light);
-    line-height: 1.9;
-    border-left: 2px solid var(--gold);
-  }
+  /* ACCESS */
+  .access{padding:10rem 5rem;background:var(--silk-white);display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start;}
+  .access-map{width:100%;height:420px;border:1px solid var(--cream-dark);overflow:hidden;}
+  .access-map iframe{width:100%;height:100%;border:none;filter:sepia(15%) saturate(85%);}
+  .access-table{width:100%;border-collapse:collapse;margin-top:2rem;}
+  .access-table tr{border-bottom:1px solid var(--cream);}
+  .access-table td{padding:1.1rem 0;font-size:0.82rem;font-weight:300;color:var(--text-light);line-height:1.85;vertical-align:top;}
+  .access-table td:first-child{font-family:'Cormorant Garamond',serif;font-size:0.68rem;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;white-space:nowrap;padding-right:2rem;width:90px;padding-top:1.35rem;}
+  .access-note{margin-top:2rem;padding:1.5rem 2rem;background:var(--cream);border-left:2px solid var(--gold);font-size:0.77rem;font-weight:300;color:var(--text-light);line-height:1.95;}
 
-  /* ─── CONTACT ─── */
-  .contact {
-    background: var(--green);
-    padding: 8rem 4rem;
-    text-align: center;
-  }
-  .contact .section-title { color: var(--ivory); }
-  .contact-sub {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: rgba(237,229,216,0.6);
-    line-height: 2;
-    margin-top: 1.5rem;
-    margin-bottom: 3rem;
-  }
-  .contact-btns {
-    display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
-  }
-  .btn-gold {
-    display: inline-flex; align-items: center; gap: 0.8rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    letter-spacing: 0.3em;
-    color: var(--green);
-    background: var(--gold-light);
-    border: none;
-    padding: 1.1rem 3rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .btn-gold:hover { background: var(--gold); letter-spacing: 0.4em; }
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: 0.8rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    letter-spacing: 0.3em;
-    color: var(--ivory);
-    background: transparent;
-    border: 1px solid rgba(237,229,216,0.3);
-    padding: 1.1rem 3rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
+  /* CONTACT */
+  .contact{background:var(--green);padding:8rem 5rem;text-align:center;position:relative;overflow:hidden;}
+  .contact::before{content:'Reserve';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:18vw;font-weight:300;font-style:italic;color:rgba(255,255,255,0.02);pointer-events:none;user-select:none;white-space:nowrap;}
+  .contact .label{color:var(--gold-light);display:flex;justify-content:center;}
+  .contact-sub{font-size:0.84rem;font-weight:300;color:rgba(250,247,242,0.55);line-height:2.1;margin:1.5rem 0 3rem;}
+  .contact-btns{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+  .btn-gold{display:inline-flex;align-items:center;gap:0.8rem;font-family:'Cormorant Garamond',serif;font-size:0.85rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--green);background:var(--gold-light);padding:1.1rem 3rem;text-decoration:none;border:none;transition:all 0.3s;}
+  .btn-gold:hover{background:var(--gold);letter-spacing:0.4em;}
+  .btn-ghost{display:inline-flex;align-items:center;gap:0.8rem;font-family:'Cormorant Garamond',serif;font-size:0.85rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory);background:transparent;border:1px solid rgba(250,247,242,0.25);padding:1.1rem 3rem;text-decoration:none;transition:all 0.3s;}
+  .btn-ghost:hover{border-color:var(--gold-light);color:var(--gold-light);}
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: #1A2820;
-    padding: 4rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-  .footer-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--gold-light);
-    letter-spacing: 0.1em;
-  }
-  .footer-brand-sub {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    color: rgba(212,180,131,0.4);
-    margin-top: 0.3rem;
-    display: block;
-  }
-  .footer-tagline {
-    font-size: 0.75rem;
-    font-weight: 300;
-    color: rgba(237,229,216,0.4);
-    line-height: 1.9;
-    margin-top: 1.2rem;
-  }
-  .footer-links h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.35em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-  }
-  .footer-links ul { list-style: none; }
-  .footer-links li { margin-bottom: 0.6rem; }
-  .footer-links a {
-    font-size: 0.78rem;
-    font-weight: 300;
-    color: rgba(237,229,216,0.5);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: color 0.3s;
-  }
-  .footer-links a:hover { color: var(--gold-light); }
-  .footer-info { }
-  .footer-info p {
-    font-size: 0.75rem;
-    font-weight: 300;
-    color: rgba(237,229,216,0.4);
-    line-height: 1.9;
-    letter-spacing: 0.05em;
-  }
-  .footer-bottom {
-    background: #141f18;
-    padding: 1.5rem 4rem;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .footer-copy {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.7rem;
-    color: rgba(237,229,216,0.25);
-    letter-spacing: 0.15em;
-  }
+  /* FOOTER */
+  footer{background:#18241E;padding:5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4rem;}
+  .f-brand{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;font-style:italic;color:var(--gold-light);letter-spacing:0.12em;}
+  .f-brand-sub{font-size:0.62rem;letter-spacing:0.35em;color:rgba(212,180,131,0.3);display:block;margin-top:0.3rem;}
+  .f-tagline{font-size:0.74rem;font-weight:200;color:rgba(250,247,242,0.3);line-height:2;margin-top:1.2rem;}
+  .f-links h4{font-family:'Cormorant Garamond',serif;font-size:0.68rem;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem;}
+  .f-links ul{list-style:none;}
+  .f-links li{margin-bottom:0.6rem;}
+  .f-links a{font-size:0.76rem;font-weight:300;color:rgba(250,247,242,0.4);text-decoration:none;transition:color 0.3s;}
+  .f-links a:hover{color:var(--gold-light);}
+  .f-info p{font-size:0.74rem;font-weight:200;color:rgba(250,247,242,0.35);line-height:2;}
+  .footer-bottom{background:#101A12;padding:1.5rem 5rem;display:flex;justify-content:space-between;align-items:center;}
+  .footer-copy{font-family:'Cormorant Garamond',serif;font-size:0.68rem;color:rgba(250,247,242,0.2);letter-spacing:0.15em;}
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
-    nav { padding: 1.2rem 2rem; }
-    nav.scrolled { padding: 0.8rem 2rem; }
-    .nav-links { display: none; }
-    .hero-content { padding: 0 2rem 6rem; }
-    .hero-scroll { right: 2rem; }
-    .concept, .about, .shop, .access {
-      grid-template-columns: 1fr;
-      padding: 6rem 2rem;
-      gap: 3rem;
-    }
-    .menu { padding: 6rem 2rem; }
-    .menu-header { grid-template-columns: 1fr; }
-    .menu-list { grid-template-columns: 1fr; }
-    .features { padding: 6rem 2rem; }
-    .features-grid { grid-template-columns: 1fr; }
-    .feature-item { border-right: none; border-bottom: 1px solid rgba(184,150,90,0.3); }
-    .voice { padding: 6rem 2rem; }
-    .voice-grid { grid-template-columns: 1fr; }
-    .silk-band { flex-direction: column; gap: 2rem; text-align: center; padding: 4rem 2rem; }
-    .silk-band-divider { width: 60px; height: 1px; }
-    .contact { padding: 6rem 2rem; }
-    footer { grid-template-columns: 1fr; padding: 3rem 2rem; }
-    .footer-bottom { padding: 1.2rem 2rem; flex-direction: column; gap: 0.5rem; }
-    .concept-visual, .about-visual { height: 350px; }
+  /* RESPONSIVE */
+  @media(max-width:960px){
+    nav{padding:1.2rem 2rem;}nav.scrolled{padding:0.9rem 2rem;}
+    .nav-center{display:none;}
+    .hero-content{padding:0 2rem 6rem;}
+    .hero-scroll{right:2rem;}
+    .silk-intro,.about,.shop,.access{grid-template-columns:1fr;padding:6rem 2rem;gap:3.5rem;}
+    .silk-intro::before{display:none;}
+    .story{padding:6rem 2rem;}
+    .story-block{grid-template-columns:1fr;gap:2rem;}
+    .story-block:nth-child(even) .sbt,.story-block:nth-child(odd) .sbt{order:2;padding:0;}
+    .story-block:nth-child(even) .sbv{order:1;}
+    .features{padding:6rem 2rem;}
+    .features-grid{grid-template-columns:1fr;}
+    .feat{border-right:none;border-bottom:1px solid rgba(184,150,90,0.25);}
+    .feat:last-child{border-bottom:none;}
+    .menu{padding:6rem 2rem;}
+    .menu-head{grid-template-columns:1fr;}
+    .menu-grid{grid-template-columns:1fr;}
+    .flow{padding:6rem 2rem;}
+    .silk-band-inner{grid-template-columns:1fr;}
+    .silk-band-div{display:none;}
+    .silk-band-item{padding:3rem 2rem;border-bottom:1px solid rgba(184,150,90,0.2);}
+    .voice{padding:6rem 2rem;}
+    .voice-grid{grid-template-columns:1fr;}
+    .contact{padding:6rem 2rem;}
+    footer{grid-template-columns:1fr;padding:3rem 2rem;}
+    .footer-bottom{padding:1.2rem 2rem;flex-direction:column;gap:0.5rem;text-align:center;}
+    .silk-visual,.about-visual{height:320px;}
   }
 </style>
 </head>
 <body>
+<div class="silk-overlay"></div>
 
 <!-- LOADER -->
 <div class="loader" id="loader">
-  <div class="loader-text">kinukimama</div>
+  <div class="loader-en">kinukimama</div>
+  <div class="loader-ja">キヌキママ 自由が丘</div>
 </div>
 
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">kinukimama</a>
-  <ul class="nav-links">
-    <li><a href="#concept">Concept</a></li>
+  <ul class="nav-center">
+    <li><a href="#concept">Silk</a></li>
+    <li><a href="#story">Story</a></li>
     <li><a href="#menu">Menu</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#voice">Voice</a></li>
+    <li><a href="#flow">Flow</a></li>
     <li><a href="#access">Access</a></li>
   </ul>
-  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000596328" target="_blank" class="nav-reserve">Reserve</a>
+  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000596328" target="_blank" class="nav-btn">Reserve</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-silk"></div>
+  <div class="hero-shimmer"></div>
+  <div class="hero-silk-lines"></div>
   <div class="hero-content">
-    <span class="hero-en">Relaxation Salon — Jiyugaoka, Tokyo</span>
+    <div class="hero-silk-mark">
+      <div class="hero-silk-line"></div>
+      <span class="hero-silk-text">Silk Sericin — Jiyugaoka, Tokyo</span>
+    </div>
     <h1 class="hero-title">
-      絹のような手で、<br>
-      あなたの疲れを<br>
-      <em>解きほぐす</em>。
+      絹に宿る、<br><em>癒しの力</em>で。<br>あなたを解き放つ。
     </h1>
     <p class="hero-sub">
-      自由が丘の完全個室。セラピスト歴20年の熟練ハンドが、<br>
-      心と身体の奥にある疲れにそっと寄り添います。
+      自由が丘の完全個室。絹セリシンを纏った熟練の手が、<br>心と身体の奥に積み重なった疲れを、そっとほどきます。
     </p>
-    <a href="#menu" class="hero-cta">
-      メニューを見る
-      <svg width="20" height="8" viewBox="0 0 20 8" fill="none"><path d="M0 4H18M15 1L18 4L15 7" stroke="currentColor" stroke-width="0.8"/></svg>
-    </a>
+    <a href="#menu" class="hero-cta">メニューを見る <svg width="22" height="8" viewBox="0 0 22 8" fill="none"><path d="M0 4H20M17 1L20 4L17 7" stroke="currentColor" stroke-width="0.8"/></svg></a>
   </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-bar"></div></div>
+</section>
+
+<!-- SILK INTRO -->
+<section class="silk-intro" id="concept">
+  <div class="silk-intro-text reveal">
+    <span class="label">The Power of Silk</span>
+    <span class="title-en-bg">Kinukimama</span>
+    <h2 class="title-jp">絹が、肌を変える。<br>絹が、心を解く。</h2>
+    <div class="bar"></div>
+    <p class="body-text" style="color:rgba(250,247,242,0.65)">
+      "キヌ"は<span style="color:var(--gold-light);font-weight:400">絹</span>を表します。蚕が紡ぐ絹糸から抽出される天然のたんぱく質<span style="color:var(--gold-light);font-weight:400">「絹セリシン（Silk Sericin）」</span>は、肌の潤いを守り、ハリとツヤをもたらす、自然界が生んだ美の素。
+      <br><br>
+      人間の肌に近い成分構造を持つ絹セリシンは、古来より「美肌の秘薬」として語り継がれてきました。キヌキママでは、この絹の力をフェイシャルケアの核心に据え、外側からの施術と自然治癒力を組み合わせた、唯一無二のケアを提供します。
+      <br><br>
+      絹のように<span style="color:var(--gold-light);font-weight:400">しなやかに</span>——あなたが本来持つ美しさと健やかさを取り戻す旅へ。
+    </p>
+  </div>
+  <div class="silk-visual reveal" style="transition-delay:0.2s">
+    <div class="silk-block-main"><span class="silk-kanji">絹</span></div>
+    <div class="silk-block-accent">
+      <span class="silk-num">20</span>
+      <span class="silk-num-label">Years of<br>Experience</span>
+    </div>
   </div>
 </section>
 
-<!-- CONCEPT -->
-<section class="concept" id="concept">
-  <div class="concept-text reveal">
-    <span class="section-label">Our Concept</span>
-    <span class="section-title-en">Silk</span>
-    <h2 class="section-title">絹のように、<br>しなやかに。</h2>
-    <div class="divider"></div>
-    <p class="concept-body">
-      "キヌ"は<strong>絹</strong>を表します。フェイシャルに使用する化粧品ブランド『きぬもよふ』の主成分、天然のたんぱく質<strong>「絹セリシン」</strong>に由来する名前です。
-      <br><br>
-      否が応でも肩肘をはって頑張り過ぎてしまう大人女性に、<strong>"気まま"に力まず</strong>、自分らしく—。そんな思いを込めて、このサロンを作りました。
-      <br><br>
-      完全個室のプライベート空間で、あなただけのオーダーメイドケアをご提案します。
-    </p>
-  </div>
-  <div class="concept-visual reveal" style="transition-delay:0.2s">
-    <div class="concept-img-main" style="background: linear-gradient(135deg, #C5B49A 0%, #8FA89A 100%);"></div>
-    <div class="concept-img-accent">
-      <div>
-        <div class="concept-img-accent-text">20<br>years</div>
-        <span class="concept-img-accent-sub">of experience</span>
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="story-header reveal">
+      <span class="label">Our Philosophy</span>
+      <span class="title-en-bg">Philosophy</span>
+      <h2 class="title-jp" style="color:var(--green)">なぜ、絹なのか。</h2>
+      <div class="bar" style="margin:2rem auto"></div>
+    </div>
+    <div class="story-block reveal">
+      <div class="sbt">
+        <span class="story-block-num">01</span>
+        <div class="story-block-title">絹セリシンという、奇跡の成分</div>
+        <p class="body-text">蚕が繭を作る際に分泌する絹糸から抽出される「セリシン」は、豊富なアミノ酸を含む天然のたんぱく質。人の肌の成分に驚くほど近く、浸透しやすく、肌のバリア機能を高める力を持ちます。化学成分に頼らず、自然の力で肌を整える——これがキヌキママが絹を選んだ理由です。</p>
       </div>
+      <div class="sbv"><span class="sbv-en">Silk</span></div>
+    </div>
+    <div class="story-block dark reveal" style="transition-delay:0.1s">
+      <div class="sbt">
+        <span class="story-block-num">02</span>
+        <div class="story-block-title">効率ではなく、質のみを追求する</div>
+        <p class="body-text">キヌキママは、オーナーセラピスト一人が一人のお客様と向き合う、完全1対1のサロンです。大量に施術をこなすことより、あなた一人の身体と心に深く寄り添うことを選びました。20年の経験が生む「手の記憶」は、マニュアルでは生まれません。その日の状態を感じ取り、最適な施術を判断する。それが、キヌキママのケアです。</p>
+      </div>
+      <div class="sbv dark"><span class="sbv-en">Craft</span></div>
+    </div>
+    <div class="story-block reveal" style="transition-delay:0.2s">
+      <div class="sbt">
+        <span class="story-block-num">03</span>
+        <div class="story-block-title">大人女性の「気まま」を守りたい</div>
+        <p class="body-text">何かと頑張り過ぎてしまう大人女性に、「気まま」という言葉を贈りたい。力まず、比べず、自分らしく——。サロン名の「ママ」には、包み込むような温かさと、ほっと一息つける場所でありたいという思いが込められています。絹のように柔らかく、強く。あなたがあなたでいられる時間を、このサロンで。</p>
+      </div>
+      <div class="sbv"><span class="sbv-en">Care</span></div>
     </div>
   </div>
 </section>
@@ -977,134 +376,180 @@
 <!-- FEATURES -->
 <section class="features">
   <div class="features-header reveal">
-    <span class="section-label">Why kinukimama</span>
-    <h2 class="section-title">選ばれる理由</h2>
+    <span class="label">Why kinukimama</span>
+    <h2 class="title-jp" style="color:var(--ivory)">選ばれる3つの理由</h2>
   </div>
   <div class="features-grid">
-    <div class="feature-item reveal">
-      <div class="feature-num">01</div>
-      <div class="feature-title">熟練の技術</div>
-      <p class="feature-text">セラピスト歴20年のオーナーが一人ひとりの状態を丁寧に見極め、その日の身体に合わせたオーダーメイドのケアをご提供します。</p>
+    <div class="feat reveal">
+      <div class="feat-num">01</div>
+      <div class="feat-title">絹セリシンの力</div>
+      <p class="feat-body">フェイシャルに使用する『きぬもよふ』は絹セリシンを主成分とした天然由来ブランド。施術と素材の相乗効果で、一般的なサロンとは次元の異なるケアが生まれます。</p>
     </div>
-    <div class="feature-item reveal" style="transition-delay:0.15s">
-      <div class="feature-num">02</div>
-      <div class="feature-title">完全個室・女性専用</div>
-      <p class="feature-text">他のお客様の目を気にせず、完全にリラックスできるプライベートな空間。女性専用サロンだから、安心してお身体を委ねていただけます。</p>
+    <div class="feat reveal" style="transition-delay:0.15s">
+      <div class="feat-num">02</div>
+      <div class="feat-title">20年の熟練ハンド</div>
+      <p class="feat-body">セラピスト歴20年のオーナーが一人ひとりの身体を見極め、オーダーメイドのケアを提供。完全1対1だからこそ生まれる、深い施術です。</p>
     </div>
-    <div class="feature-item reveal" style="transition-delay:0.3s">
-      <div class="feature-num">03</div>
-      <div class="feature-title">自由が丘・駅徒歩3分</div>
-      <p class="feature-text">自由が丘駅南口より徒歩3分。都会の喧噪を忘れさせてくれる静かな路地に佇む、隠れ家のようなサロンです。</p>
+    <div class="feat reveal" style="transition-delay:0.3s">
+      <div class="feat-num">03</div>
+      <div class="feat-title">自由が丘の隠れ家</div>
+      <p class="feat-body">駅南口より徒歩3分。植物が外壁を覆うテラス自由が丘の一室に佇む完全個室。外の世界とは切り離された、あなただけの時間が始まります。</p>
     </div>
   </div>
 </section>
 
 <!-- MENU -->
 <section class="menu" id="menu">
-  <div class="menu-header">
+  <div class="menu-head">
     <div class="reveal">
-      <span class="section-label">Treatment Menu</span>
-      <h2 class="section-title">施術メニュー</h2>
-      <div class="divider"></div>
+      <span class="label">Treatment Menu</span>
+      <h2 class="title-jp" style="color:var(--green)">施術メニュー</h2>
+      <div class="bar"></div>
     </div>
-    <p class="menu-intro reveal" style="transition-delay:0.15s">
-      身体の声に耳を傾け、その日の状態に合わせてアプローチを調整するオーダーメイドスタイル。首肩のコリ、むくみ、たるみ、疲れ目など、気になるお悩みをお気軽にご相談ください。
-    </p>
+    <p class="menu-intro reveal" style="transition-delay:0.15s">身体の声に耳を傾け、その日の状態に合わせてアプローチを調整するオーダーメイドスタイル。絹セリシンの保湿力と、20年の熟練ハンドの融合が生む施術を体感してください。</p>
   </div>
-  <div class="menu-list">
-    <div class="menu-item reveal">
-      <span class="menu-item-en">Body Treatment</span>
-      <div class="menu-item-name">全身オイルリンパ＋もみほぐし</div>
-      <p class="menu-item-desc">人気No.1メニュー。オイルトリートメントともみほぐしを組み合わせ、根深い疲れをリセット。全身の循環を整え、身体の芯からほぐします。</p>
-      <div class="menu-item-price">¥12,300〜<span>/ 90分（新規）</span></div>
+  <div class="menu-grid">
+    <div class="menu-card reveal">
+      <span class="menu-card-silk">Silk Care</span>
+      <span class="menu-en">Body Treatment</span>
+      <div class="menu-name">全身オイルリンパ＋もみほぐし</div>
+      <p class="menu-desc">人気No.1。全身にオイルを使ったリンパケアともみほぐしを組み合わせ、滞った血液とリンパの流れを整えます。根深い疲れ・コリ・むくみに、じっくりアプローチ。</p>
+      <div class="menu-price">¥12,300〜<small>/ 90分（新規）</small></div>
     </div>
-    <div class="menu-item reveal" style="transition-delay:0.1s">
-      <span class="menu-item-en">Facial Treatment</span>
-      <div class="menu-item-name">絹美肌フェイシャル</div>
-      <p class="menu-item-desc">絹セリシン配合の『きぬもよふ』を使ったフェイシャルケア。表情筋をほぐしてリフトアップ。ほうれい線・たるみ・小顔効果が期待できます。</p>
-      <div class="menu-item-price">¥10,000〜<span>/ 60分〜</span></div>
+    <div class="menu-card reveal" style="transition-delay:0.1s">
+      <span class="menu-card-silk">Silk Sericin</span>
+      <span class="menu-en">Facial Treatment</span>
+      <div class="menu-name">絹美肌フェイシャル</div>
+      <p class="menu-desc">絹セリシン配合の『きぬもよふ』を使った、キヌキママの代名詞的ケア。表情筋をほぐしてリフトアップ。ほうれい線・たるみ・乾燥に、高保湿でアプローチします。</p>
+      <div class="menu-price">¥10,000〜<small>/ 60分〜</small></div>
     </div>
-    <div class="menu-item reveal" style="transition-delay:0.2s">
-      <span class="menu-item-en">Reflexology</span>
-      <div class="menu-item-name">台湾式足つぼ</div>
-      <p class="menu-item-desc">足裏の反射区を丁寧に刺激する本格台湾式リフレクソロジー。むくみ・冷え・内臓の活性化にもアプローチ。施術後の足の軽さをぜひ体感を。</p>
-      <div class="menu-item-price">¥7,200〜<span>/ 60分（新規）</span></div>
+    <div class="menu-card reveal" style="transition-delay:0.2s">
+      <span class="menu-card-silk">Reflexology</span>
+      <span class="menu-en">Taiwan Reflexology</span>
+      <div class="menu-name">台湾式足つぼ</div>
+      <p class="menu-desc">足裏の反射区を丁寧に刺激する本格台湾式。むくみ・冷え・内臓の活性化・自律神経の調整にも働きかけます。施術後の足の軽さはやみつきに。</p>
+      <div class="menu-price">¥7,200〜<small>/ 60分（新規）</small></div>
     </div>
-    <div class="menu-item reveal" style="transition-delay:0.3s">
-      <span class="menu-item-en">Full Course</span>
-      <div class="menu-item-name">きぬきまボディ＆フェイス</div>
-      <p class="menu-item-desc">顔も体も丸ごとケアするご褒美フルコース。ボディ・足つぼ・ヘッド・フェイシャルを組み合わせた、贅沢なオールインワンメニュー。</p>
-      <div class="menu-item-price">¥18,000<span>/ 120分</span></div>
+    <div class="menu-card reveal" style="transition-delay:0.3s">
+      <span class="menu-card-silk">Full Course</span>
+      <span class="menu-en">Premium Full Course</span>
+      <div class="menu-name">きぬきまボディ＆フェイス</div>
+      <p class="menu-desc">顔も体も丸ごとケアする至高のフルコース。ボディ・足つぼ・ヘッド・絹美肌フェイシャルを組み合わせた120分。特別な日のご褒美メンテナンスに。</p>
+      <div class="menu-price">¥18,000<small>/ 120分</small></div>
     </div>
   </div>
-  <div class="menu-note reveal">
-    ※全メニュー完全予約制・女性専用です。その他のメニューやご不明な点はお気軽にお問い合わせください。<br>
-    ※施術中は電話に出られない場合がございます。留守番電話またはSMSにてご連絡ください。
+  <div class="menu-note reveal">※全メニュー完全予約制・女性専用です。ご不明な点はお気軽にお問い合わせください。<br>※施術中はお電話に出られません。留守番電話またはSMSにてご連絡ください。</div>
+</section>
+
+<!-- FLOW -->
+<section class="flow" id="flow">
+  <div class="flow-header reveal">
+    <span class="label">Treatment Flow</span>
+    <span class="title-en-bg">How it works</span>
+    <h2 class="title-jp" style="color:var(--green)">はじめての方へ<br>施術の流れ</h2>
+  </div>
+  <div class="flow-steps">
+    <div class="flow-step reveal">
+      <div class="flow-num">01</div>
+      <div class="flow-content">
+        <div class="flow-title">ご予約</div>
+        <p class="flow-body">ホットペッパービューティーのオンライン予約、またはお電話・SMSにてご予約ください。<em>完全予約制</em>のため、事前のご連絡をお願いします。施術中は電話に出られませんので、留守番電話またはSMSにてご連絡ください。</p>
+      </div>
+    </div>
+    <div class="flow-step reveal" style="transition-delay:0.1s">
+      <div class="flow-num">02</div>
+      <div class="flow-content">
+        <div class="flow-title">ご来店・カウンセリング</div>
+        <p class="flow-body">自由が丘駅南口より徒歩3分、テラス自由が丘205号室へ。ご来店後、<em>丁寧なカウンセリング</em>を行います。その日の身体の状態やお悩み・ご希望の圧加減などを伺い、あなたに合ったオーダーメイドのプランをご提案します。</p>
+      </div>
+    </div>
+    <div class="flow-step reveal" style="transition-delay:0.2s">
+      <div class="flow-num">03</div>
+      <div class="flow-content">
+        <div class="flow-title">お着替え・施術スタート</div>
+        <p class="flow-body"><em>完全個室</em>の落ち着いた空間でお着替えいただき、施術へ。オイルリンパ・もみほぐし・足つぼ・フェイシャルなど、プランに合わせて丁寧に施術します。20年の熟練ハンドが、あなたの身体の奥にある疲れを読み取りながらほぐします。</p>
+      </div>
+    </div>
+    <div class="flow-step reveal" style="transition-delay:0.3s">
+      <div class="flow-num">04</div>
+      <div class="flow-content">
+        <div class="flow-title">アフターケア・お会計</div>
+        <p class="flow-body">施術後はゆっくりとお休みいただいた後、お会計へ。身体が老廃物を排出しやすい状態になっていますので、<em>水分をしっかり摂る</em>ことをお勧めします。次回のご予約やホームケアのアドバイスもお気軽にご相談ください。</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-visual reveal">
-    <div class="about-img-bg"></div>
-    <div class="about-img-front">
-      <p class="about-quote">"Every touch tells a story of healing."</p>
-      <p class="about-quote-ja">すべての施術に、癒しの物語があります。</p>
+    <div class="av-back"></div>
+    <div class="av-front">
+      <p class="av-quote">"Silk heals what words cannot reach."</p>
+      <p class="av-quote-ja">絹は、言葉では届かない場所まで癒す。</p>
     </div>
   </div>
-  <div class="about-text reveal" style="transition-delay:0.2s">
-    <span class="section-label">About</span>
-    <h2 class="section-title">大人女性のための、<br>メンテナンスサロン。</h2>
-    <div class="divider"></div>
-    <p class="about-body">
-      日々懸命に生きる女性の身体と心には、定期的なメンテナンスが必要です。キヌキママは、リラクゼーションにとどまらず、身体の内側から整える「本質的なケア」を追求しています。
-      <br><br>
-      オイルリンパマッサージ、ボディケア、足つぼ、フェイシャルなど、様々なアプローチを組み合わせたオーダーメイドの施術で、あなたの身体が本来持つ自然治癒力を引き出します。
-      <br><br>
-      固くなった身体を解きほぐし、心も身体も軽くなって、日々を自分らしく快適に過ごすお手伝いをいたします。
-    </p>
+  <div class="reveal" style="transition-delay:0.2s">
+    <span class="label">About</span>
+    <span class="title-en-bg">About Us</span>
+    <h2 class="title-jp" style="color:var(--green)">大人女性の<br>「気まま」を守るサロン。</h2>
+    <div class="bar"></div>
+    <p class="body-text">キヌキママのキヌは"絹"を表します。絹を作る時に抽出される「セリシン」を主とする化粧品ブランド『きぬもよふ』をフェイシャルの施術で使用することが由来です。<br><br>否が応でも肩肘をはって頑張り過ぎてしまう大人女性に、"気まま"に力まず、自分らしく——という思いを込めて名付けました。毎日頑張るあなたの身体のケアは、キヌキママにお任せください。</p>
     <div class="about-profile">
-      <div class="about-profile-icon"><span>G</span></div>
+      <div class="profile-icon"><span>G</span></div>
       <div>
-        <div class="about-profile-name">後藤 早苗</div>
-        <div class="about-profile-role">Owner Therapist ／ セラピスト歴20年</div>
+        <div class="profile-name">後藤 早苗</div>
+        <div class="profile-role">Owner Therapist ／ セラピスト歴20年</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SILK BAND -->
-<div class="silk-band reveal">
-  <div class="silk-band-text">kinukimama</div>
-  <div class="silk-band-divider"></div>
-  <p class="silk-band-ja">気まま、に。力まず、自分らしく。<br>自由が丘の隠れ家で、あなただけの時間を。</p>
-  <div class="silk-band-divider"></div>
-  <div class="silk-band-text" style="font-size:1rem; font-style:normal; letter-spacing:0.3em; color:var(--gold); font-family:'Cormorant Garamond', serif;">Jiyugaoka</div>
+<div class="silk-band">
+  <div class="silk-band-inner">
+    <div class="silk-band-item reveal">
+      <span class="silk-band-num">絹</span>
+      <span class="silk-band-lbl">Silk Sericin</span>
+      <p class="silk-band-desc">天然の絹たんぱく質が<br>肌の奥まで潤す</p>
+    </div>
+    <div class="silk-band-div"></div>
+    <div class="silk-band-item reveal" style="transition-delay:0.15s">
+      <span class="silk-band-num">20</span>
+      <span class="silk-band-lbl">Years</span>
+      <p class="silk-band-desc">20年の熟練ハンドが<br>あなたの疲れを読む</p>
+    </div>
+    <div class="silk-band-div"></div>
+    <div class="silk-band-item reveal" style="transition-delay:0.3s">
+      <span class="silk-band-num">4.97</span>
+      <span class="silk-band-lbl">Rating</span>
+      <p class="silk-band-desc">63件の口コミが証明する<br>確かな施術クオリティ</p>
+    </div>
+  </div>
 </div>
 
 <!-- VOICE -->
-<section class="voice" id="voice">
+<section class="voice">
   <div class="voice-header reveal">
-    <span class="section-label">Customer Voice</span>
-    <h2 class="section-title">お客様の声</h2>
+    <span class="label">Customer Voice</span>
+    <h2 class="title-jp" style="color:var(--green)">お客様の声</h2>
     <div class="voice-rating">
       <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-      <span class="voice-score">4.97</span>
-      <span class="voice-count">（63件）</span>
+      <span class="voice-score">4.97</span><span class="voice-count">（63件）</span>
     </div>
   </div>
   <div class="voice-grid">
     <div class="voice-card reveal">
-      <p class="voice-card-text">「先生の手がとても温かく、施術中は本当にリラックスできました。身体の悩みをしっかり聞いてくださり、的確にほぐしていただきました。終わった後の身体の軽さが感動的です。」</p>
-      <div class="voice-card-from">30代 / 会社員</div>
+      <p class="voice-text">先生の手がとても温かく、施術中は本当にリラックスできました。身体の悩みをしっかり聞いてくださり的確にほぐしていただきました。終わった後の身体の軽さが感動的です。</p>
+      <div class="voice-from">30代 / 会社員</div>
     </div>
     <div class="voice-card reveal" style="transition-delay:0.15s">
-      <p class="voice-card-text">「自由が丘でこんなに素晴らしいサロンに出会えて本当によかったです。個室なので気兼ねなく過ごせます。フェイシャルも受けたら、友人に『肌がきれいになった』と言われました。」</p>
-      <div class="voice-card-from">40代 / 主婦</div>
+      <p class="voice-text">絹のフェイシャルを受けてから肌の調子が変わりました。翌朝の肌が全然違う。友人に「肌きれい」と言われるようになり、それからリピートしています。個室なので気兼ねなく過ごせるのも好きです。</p>
+      <div class="voice-from">40代 / 主婦</div>
     </div>
     <div class="voice-card reveal" style="transition-delay:0.3s">
-      <p class="voice-card-text">「長年の肩こりと頭痛が改善されました。押されているのに痛くなく、気持ちよくて毎回眠ってしまいます。完全予約制で待ち時間もなく、忙しい私でも通えるサロンです。」</p>
-      <div class="voice-card-from">50代 / 自営業</div>
+      <p class="voice-text">長年の肩こりと頭痛が改善されました。1対1で丁寧にカウンセリングしてくれるので毎回ピンポイントでほぐしてもらえます。完全予約制で待ち時間もなく、忙しい私でも安心して通えます。</p>
+      <div class="voice-from">50代 / 自営業</div>
     </div>
   </div>
 </section>
@@ -1112,77 +557,47 @@
 <!-- SHOP -->
 <section class="shop" id="shop">
   <div class="shop-visual reveal">
-    <div class="shop-brand">きぬもよふ</div>
-    <div class="shop-brand-sub">kinumoyofu — Silk Sericin Skincare</div>
+    <div class="shop-brand-en">きぬもよふ</div>
+    <div class="shop-brand-ja">kinumoyofu</div>
+    <div class="shop-brand-sub">Silk Sericin Skincare Brand</div>
   </div>
-  <div class="reveal" style="transition-delay:0.2s">
-    <span class="section-label">Online Shop</span>
-    <h2 class="section-title">絹セリシンの<br>スキンケアブランド。</h2>
-    <div class="divider"></div>
-    <p class="shop-body">
-      キヌキママのフェイシャルで使用している化粧品ブランド『きぬもよふ』。絹を作る際に抽出される天然のたんぱく質「絹セリシン」を主成分とした、高保湿・ハリツヤケアのスキンケアシリーズです。
-      <br><br>
-      サロンケアの効果をご自宅でも。オンラインショップにてご購入いただけます。
-    </p>
-    <a href="#" class="btn-outline">Shop Now →</a>
+  <div class="shop-text reveal" style="transition-delay:0.2s">
+    <span class="label">Online Shop</span>
+    <span class="title-en-bg">Kinumoyofu</span>
+    <h2 class="title-jp" style="color:var(--ivory)">絹の美しさを、<br>毎日の肌へ。</h2>
+    <div class="bar"></div>
+    <p class="body-text" style="color:rgba(250,247,242,0.6)">キヌキママのフェイシャルで使用する化粧品ブランド『きぬもよふ』。絹から抽出される天然のたんぱく質<strong>「絹セリシン」</strong>を主成分とした、ハリ・ツヤ・高保湿のスキンケアシリーズです。<br><br>サロンで体感した絹の力を、ご自宅でも。オンラインショップにてご購入いただけます。</p>
+    <a href="#" class="btn-outline-light">Shop Now →</a>
   </div>
 </section>
 
 <!-- ACCESS -->
 <section class="access" id="access">
   <div class="reveal">
-    <span class="section-label">Access</span>
-    <h2 class="section-title">アクセス</h2>
-    <div class="divider"></div>
+    <span class="label">Access</span>
+    <h2 class="title-jp" style="color:var(--green)">アクセス</h2>
+    <div class="bar"></div>
     <table class="access-table">
-      <tr>
-        <td>Address</td>
-        <td>東京都世田谷区奥沢５－20－10<br>テラス自由が丘 205号室</td>
-      </tr>
-      <tr>
-        <td>Access</td>
-        <td>東急東横線・大井町線<br>自由が丘駅 南口より徒歩3分</td>
-      </tr>
-      <tr>
-        <td>Hours</td>
-        <td>11:00 〜 20:00<br><span style="font-size:0.75rem;color:#999">時間外応相談（お電話にてお問い合わせください）</span></td>
-      </tr>
-      <tr>
-        <td>Holiday</td>
-        <td>不定休</td>
-      </tr>
-      <tr>
-        <td>Payment</td>
-        <td>Visa / Master / JCB / AMEX<br>交通系IC / iD / QUICPay 他</td>
-      </tr>
-      <tr>
-        <td>Parking</td>
-        <td>なし（周辺コインパーキングをご利用ください）</td>
-      </tr>
+      <tr><td>Address</td><td>東京都世田谷区奥沢５－20－10<br>テラス自由が丘 205号室</td></tr>
+      <tr><td>Access</td><td>東急東横線・大井町線 自由が丘駅<br>南口より徒歩3分</td></tr>
+      <tr><td>Hours</td><td>11:00 〜 20:00<br><span style="font-size:0.74rem;color:#aaa">時間外応相談（お電話にてお問い合わせください）</span></td></tr>
+      <tr><td>Holiday</td><td>不定休</td></tr>
+      <tr><td>Payment</td><td>Visa / Master / JCB / AMEX<br>交通系IC / iD / QUICPay ほか</td></tr>
+      <tr><td>Parking</td><td>なし（周辺コインパーキングをご利用ください）</td></tr>
     </table>
-    <div class="access-note">
-      ■ 1人営業のため施術中はお電話に出ることができません。<br>
-      　留守番電話にメッセージ、またはSMSにてお問い合わせください。<br>
-      ■ 妊娠中・産後間もない方はご遠慮いただいております。
-    </div>
+    <div class="access-note">■ 1人営業のため施術中はお電話に出られません。<br>　留守番電話またはSMSにてお問い合わせください。<br>■ 妊娠中・産後間もない方はご遠慮いただいております。</div>
   </div>
   <div class="access-map reveal" style="transition-delay:0.2s">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.5!2d139.6685!3d35.6073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f51e6e8c7a5f%3A0x7a3e9e8a1b2c3d4e!2z5Lim56eR44Oe44Oe!5e0!3m2!1sja!2sjp!4v1234567890"
-      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.5!2d139.6685!3d35.6073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f51e6e8c7a5f%3A0x0!2z5Lim56eR44Oe44Oe!5e0!3m2!1sja!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="reveal">
-    <span class="section-label">Reservation</span>
-    <h2 class="section-title">ご予約・お問い合わせ</h2>
-    <p class="contact-sub">
-      完全予約制のため、事前のご予約をお願いいたします。<br>
-      ホットペッパービューティーからのオンライン予約、またはお電話・SMSにてお気軽にどうぞ。
-    </p>
+  <div class="reveal" style="position:relative;z-index:1">
+    <span class="label">Reservation</span>
+    <h2 class="title-jp" style="color:var(--ivory)">ご予約・お問い合わせ</h2>
+    <p class="contact-sub">完全予約制のため、事前のご予約をお願いいたします。<br>ホットペッパービューティーからのオンライン予約、またはお電話・SMSにてどうぞ。</p>
     <div class="contact-btns">
       <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000596328" target="_blank" class="btn-gold">Online Reserve</a>
       <a href="tel:" class="btn-ghost">Phone / SMS</a>
@@ -1193,75 +608,38 @@
 <!-- FOOTER -->
 <footer>
   <div>
-    <div class="footer-brand">kinukimama</div>
-    <span class="footer-brand-sub">キヌキママ 自由が丘</span>
-    <p class="footer-tagline">
-      気まま、に。力まず、自分らしく。<br>
-      大人女性のためのメンテナンスサロン。
-    </p>
+    <div class="f-brand">kinukimama</div>
+    <span class="f-brand-sub">キヌキママ 自由が丘</span>
+    <p class="f-tagline">絹に宿る癒しの力で、<br>あなたを解き放つ。<br><br>気まま、に。力まず、自分らしく。</p>
   </div>
-  <div class="footer-links">
-    <h4>Menu</h4>
+  <div class="f-links">
+    <h4>Navigation</h4>
     <ul>
-      <li><a href="#concept">コンセプト</a></li>
+      <li><a href="#concept">絹について</a></li>
+      <li><a href="#story">フィロソフィー</a></li>
       <li><a href="#menu">施術メニュー</a></li>
+      <li><a href="#flow">施術の流れ</a></li>
       <li><a href="#about">サロンについて</a></li>
-      <li><a href="#voice">お客様の声</a></li>
       <li><a href="#shop">オンラインショップ</a></li>
       <li><a href="#access">アクセス</a></li>
     </ul>
   </div>
-  <div class="footer-info">
-    <p>
-      東京都世田谷区奥沢５－20－10<br>
-      テラス自由が丘 205号室<br><br>
-      自由が丘駅南口より徒歩3分<br><br>
-      営業時間 11:00〜20:00<br>
-      完全予約制・女性専用
-    </p>
+  <div class="f-info">
+    <p>東京都世田谷区奥沢５－20－10<br>テラス自由が丘 205号室<br><br>自由が丘駅南口より徒歩3分<br><br>営業時間 11:00〜20:00<br>完全予約制・女性専用</p>
   </div>
 </footer>
 <div class="footer-bottom">
   <span class="footer-copy">© 2025 kinukimama. All Rights Reserved.</span>
-  <span class="footer-copy">Jiyugaoka, Setagaya-ku, Tokyo</span>
+  <span class="footer-copy">Silk Sericin Relaxation — Jiyugaoka, Tokyo</span>
 </div>
 
 <script>
-  // Loader
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('loader').classList.add('hidden');
-    }, 1400);
-  });
-
-  // Nav scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 80);
-  });
-
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
+  window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),1600);});
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>80));
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}));
 </script>
 </body>
 </html>
