@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="キヌキママ｜自由が丘の完全個室・女性専用リラクゼーションサロン。セラピスト歴20年のオーナーによる上質なオーダーメイドケア。オイルリンパ・もみほぐし・フェイシャル・足つぼ。">
+<title>kinukimama｜キヌキママ 自由が丘</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&family=Cormorant:ital,wght@1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F7F3EC;
+    --cream: #EDE5D8;
+    --gold: #B8965A;
+    --gold-light: #D4B483;
+    --green: #2A3D34;
+    --green-mid: #3D5548;
+    --green-light: #7A9B8A;
+    --text: #2C2C2C;
+    --text-light: #6B6257;
+    --white: #FDFAF6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── LOADING ─── */
+  .loader {
+    position: fixed; inset: 0;
+    background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease 0.5s, visibility 0.8s ease 0.5s;
+  }
+  .loader.hidden { opacity: 0; visibility: hidden; }
+  .loader-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--gold-light);
+    letter-spacing: 0.4em;
+    font-weight: 300;
+    animation: loaderFade 1.2s ease-in-out;
+  }
+  @keyframes loaderFade {
+    0% { opacity: 0; transform: translateY(10px); }
+    50% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 1; }
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background 0.4s ease, padding 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(247, 243, 236, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 1rem 4rem;
+    border-bottom: 1px solid rgba(184, 150, 90, 0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  nav.scrolled .nav-logo { color: var(--green); }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  nav.scrolled .nav-links a { color: var(--text-light); }
+  .nav-links a:hover { color: var(--gold-light); }
+  nav.scrolled .nav-links a:hover { color: var(--gold); }
+  .nav-reserve {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    color: var(--gold-light);
+    border: 1px solid var(--gold-light);
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  .nav-reserve:hover {
+    background: var(--gold-light);
+    color: var(--green);
+  }
+  nav.scrolled .nav-reserve {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+    background: var(--green);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      linear-gradient(135deg, rgba(42,61,52,0.85) 0%, rgba(42,61,52,0.4) 50%, rgba(42,61,52,0.7) 100%),
+      url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1600&q=80') center/cover no-repeat;
+  }
+  .hero-silk {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(184,150,90,0.15) 0%, transparent 60%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 4rem 8rem;
+    max-width: 720px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroReveal 1.2s ease forwards 1.5s;
+  }
+  @keyframes heroReveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+    letter-spacing: 0.4em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ivory);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    font-weight: 300;
+    color: rgba(237,229,216,0.8);
+    line-height: 2;
+    letter-spacing: 0.08em;
+    margin-bottom: 3rem;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    color: var(--ivory);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--gold-light);
+    padding-bottom: 0.5rem;
+    transition: all 0.3s;
+  }
+  .hero-cta:hover { color: var(--gold-light); letter-spacing: 0.4em; }
+  .hero-scroll {
+    position: absolute;
+    right: 4rem; bottom: 4rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+    z-index: 2;
+    opacity: 0;
+    animation: heroReveal 1s ease forwards 2.2s;
+  }
+  .hero-scroll span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(237,229,216,0.6);
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+  }
+  .scroll-line {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, var(--gold-light), transparent);
+    animation: scrollDown 2s ease-in-out infinite;
+  }
+  @keyframes scrollDown {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { position: relative; }
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.45em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    color: var(--green);
+  }
+  .section-title-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-bottom: -0.5rem;
+    display: block;
+  }
+  .divider {
+    width: 40px; height: 1px;
+    background: var(--gold);
+    margin: 2rem 0;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── CONCEPT ─── */
+  .concept {
+    padding: 10rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    background: var(--white);
+  }
+  .concept-text { max-width: 480px; }
+  .concept-body {
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    font-weight: 300;
+    line-height: 2.2;
+    color: var(--text-light);
+    margin-top: 2rem;
+  }
+  .concept-body strong {
+    color: var(--green);
+    font-weight: 500;
+  }
+  .concept-visual {
+    position: relative;
+    height: 560px;
+  }
+  .concept-img-main {
+    position: absolute;
+    right: 0; top: 0;
+    width: 80%; height: 85%;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--green-light) 100%);
+  }
+  .concept-img-accent {
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 45%; height: 50%;
+    background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .concept-img-accent-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .concept-img-accent-sub {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(212,180,131,0.6);
+    margin-top: 0.5rem;
+    display: block;
+    text-align: center;
+  }
+
+  /* ─── FEATURES ─── */
+  .features {
+    background: var(--green);
+    padding: 8rem 4rem;
+  }
+  .features-header {
+    text-align: center;
+    margin-bottom: 6rem;
+  }
+  .features-header .section-title { color: var(--ivory); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid rgba(184,150,90,0.3);
+  }
+  .feature-item {
+    padding: 3.5rem 3rem;
+    border-right: 1px solid rgba(184,150,90,0.3);
+    transition: background 0.3s;
+  }
+  .feature-item:last-child { border-right: none; }
+  .feature-item:hover { background: rgba(184,150,90,0.08); }
+  .feature-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgba(184,150,90,0.3);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+  .feature-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .feature-text {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 2;
+    color: rgba(237,229,216,0.7);
+  }
+
+  /* ─── MENU ─── */
+  .menu {
+    padding: 10rem 4rem;
+    background: var(--ivory);
+  }
+  .menu-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 6rem;
+  }
+  .menu-intro {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 2;
+    color: var(--text-light);
+  }
+  .menu-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .menu-item {
+    background: var(--white);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: default;
+  }
+  .menu-item:hover { transform: translateY(-4px); }
+  .menu-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s ease;
+  }
+  .menu-item:hover::before { transform: scaleY(1); }
+  .menu-item-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+  .menu-item-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--green);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+  .menu-item-desc {
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+  .menu-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--green);
+    letter-spacing: 0.05em;
+  }
+  .menu-item-price span {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    margin-left: 0.3rem;
+  }
+  .menu-note {
+    margin-top: 3rem;
+    padding: 2rem 3rem;
+    background: var(--cream);
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 2;
+    border-left: 2px solid var(--gold);
+  }
+
+  /* ─── ABOUT ─── */
+  .about {
+    padding: 10rem 4rem;
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+    height: 600px;
+  }
+  .about-img-bg {
+    position: absolute;
+    left: 0; top: 4rem;
+    width: 75%; height: 75%;
+    background: var(--cream);
+  }
+  .about-img-front {
+    position: absolute;
+    right: 0; bottom: 0;
+    width: 70%; height: 80%;
+    background: linear-gradient(160deg, var(--green-mid) 0%, var(--green) 100%);
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    gap: 1rem;
+    padding: 3rem;
+  }
+  .about-quote {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-style: italic;
+    color: var(--gold-light);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .about-quote-ja {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: rgba(237,229,216,0.6);
+    letter-spacing: 0.15em;
+    text-align: center;
+  }
+  .about-text { }
+  .about-profile {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--cream);
+  }
+  .about-profile-icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .about-profile-icon span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-style: italic;
+  }
+  .about-profile-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--green);
+    letter-spacing: 0.05em;
+  }
+  .about-profile-role {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--text-light);
+    letter-spacing: 0.15em;
+    margin-top: 0.2rem;
+  }
+  .about-body {
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 2.3;
+    color: var(--text-light);
+    margin-top: 2rem;
+  }
+
+  /* ─── SILK BAND ─── */
+  .silk-band {
+    background: var(--cream);
+    padding: 5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    overflow: hidden;
+  }
+  .silk-band-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--green);
+    letter-spacing: 0.05em;
+  }
+  .silk-band-ja {
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    font-weight: 300;
+    color: var(--text-light);
+    letter-spacing: 0.1em;
+    max-width: 400px;
+    line-height: 2;
+  }
+  .silk-band-divider {
+    width: 1px; height: 80px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ─── VOICE ─── */
+  .voice {
+    padding: 10rem 4rem;
+    background: var(--green);
+  }
+  .voice-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  .voice-header .section-title { color: var(--ivory); }
+  .voice-rating {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .star { color: var(--gold); font-size: 1.1rem; }
+  .voice-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--gold-light);
+    font-weight: 300;
+    margin-left: 0.5rem;
+  }
+  .voice-count {
+    font-size: 0.75rem;
+    color: rgba(237,229,216,0.5);
+    font-weight: 300;
+  }
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .voice-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,150,90,0.2);
+    padding: 2.5rem;
+    transition: background 0.3s;
+  }
+  .voice-card:hover { background: rgba(184,150,90,0.08); }
+  .voice-card-text {
+    font-size: 0.83rem;
+    font-weight: 300;
+    line-height: 2;
+    color: rgba(237,229,216,0.8);
+    margin-bottom: 1.5rem;
+  }
+  .voice-card-from {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ─── SHOP ─── */
+  .shop {
+    padding: 8rem 4rem;
+    background: var(--ivory);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .shop-visual {
+    background: var(--green);
+    height: 400px;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    gap: 1rem;
+    padding: 3rem;
+  }
+  .shop-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+  }
+  .shop-brand-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: rgba(212,180,131,0.5);
+  }
+  .shop-body {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 2.2;
+    color: var(--text-light);
+    margin-top: 1.5rem;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    margin-top: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--white);
+    background: var(--green);
+    border: none;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover { background: var(--green-mid); letter-spacing: 0.4em; }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    margin-top: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--green);
+    background: transparent;
+    border: 1px solid var(--green);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { background: var(--green); color: var(--white); }
+
+  /* ─── ACCESS ─── */
+  .access {
+    padding: 10rem 4rem;
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .access-map {
+    width: 100%;
+    height: 400px;
+    background: var(--cream);
+    border: 1px solid rgba(184,150,90,0.2);
+    overflow: hidden;
+    position: relative;
+  }
+  .access-map iframe {
+    width: 100%; height: 100%;
+    border: none;
+    filter: sepia(20%) saturate(80%);
+  }
+  .access-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+  }
+  .access-table tr {
+    border-bottom: 1px solid var(--cream);
+  }
+  .access-table td {
+    padding: 1.2rem 0;
+    font-size: 0.83rem;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.8;
+    vertical-align: top;
+  }
+  .access-table td:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-right: 2rem;
+    width: 100px;
+    padding-top: 1.4rem;
+  }
+  .access-note {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--ivory);
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.9;
+    border-left: 2px solid var(--gold);
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background: var(--green);
+    padding: 8rem 4rem;
+    text-align: center;
+  }
+  .contact .section-title { color: var(--ivory); }
+  .contact-sub {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(237,229,216,0.6);
+    line-height: 2;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .contact-btns {
+    display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+  }
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    color: var(--green);
+    background: var(--gold-light);
+    border: none;
+    padding: 1.1rem 3rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-gold:hover { background: var(--gold); letter-spacing: 0.4em; }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    color: var(--ivory);
+    background: transparent;
+    border: 1px solid rgba(237,229,216,0.3);
+    padding: 1.1rem 3rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #1A2820;
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+  }
+  .footer-brand-sub {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(212,180,131,0.4);
+    margin-top: 0.3rem;
+    display: block;
+  }
+  .footer-tagline {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: rgba(237,229,216,0.4);
+    line-height: 1.9;
+    margin-top: 1.2rem;
+  }
+  .footer-links h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .footer-links ul { list-style: none; }
+  .footer-links li { margin-bottom: 0.6rem; }
+  .footer-links a {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: rgba(237,229,216,0.5);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-info { }
+  .footer-info p {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: rgba(237,229,216,0.4);
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+  }
+  .footer-bottom {
+    background: #141f18;
+    padding: 1.5rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem;
+    color: rgba(237,229,216,0.25);
+    letter-spacing: 0.15em;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    nav.scrolled { padding: 0.8rem 2rem; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 2rem 6rem; }
+    .hero-scroll { right: 2rem; }
+    .concept, .about, .shop, .access {
+      grid-template-columns: 1fr;
+      padding: 6rem 2rem;
+      gap: 3rem;
+    }
+    .menu { padding: 6rem 2rem; }
+    .menu-header { grid-template-columns: 1fr; }
+    .menu-list { grid-template-columns: 1fr; }
+    .features { padding: 6rem 2rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-item { border-right: none; border-bottom: 1px solid rgba(184,150,90,0.3); }
+    .voice { padding: 6rem 2rem; }
+    .voice-grid { grid-template-columns: 1fr; }
+    .silk-band { flex-direction: column; gap: 2rem; text-align: center; padding: 4rem 2rem; }
+    .silk-band-divider { width: 60px; height: 1px; }
+    .contact { padding: 6rem 2rem; }
+    footer { grid-template-columns: 1fr; padding: 3rem 2rem; }
+    .footer-bottom { padding: 1.2rem 2rem; flex-direction: column; gap: 0.5rem; }
+    .concept-visual, .about-visual { height: 350px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-text">kinukimama</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">kinukimama</a>
+  <ul class="nav-links">
+    <li><a href="#concept">Concept</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#access">Access</a></li>
+  </ul>
+  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000596328" target="_blank" class="nav-reserve">Reserve</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-silk"></div>
+  <div class="hero-content">
+    <span class="hero-en">Relaxation Salon — Jiyugaoka, Tokyo</span>
+    <h1 class="hero-title">
+      絹のような手で、<br>
+      あなたの疲れを<br>
+      <em>解きほぐす</em>。
+    </h1>
+    <p class="hero-sub">
+      自由が丘の完全個室。セラピスト歴20年の熟練ハンドが、<br>
+      心と身体の奥にある疲れにそっと寄り添います。
+    </p>
+    <a href="#menu" class="hero-cta">
+      メニューを見る
+      <svg width="20" height="8" viewBox="0 0 20 8" fill="none"><path d="M0 4H18M15 1L18 4L15 7" stroke="currentColor" stroke-width="0.8"/></svg>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="concept" id="concept">
+  <div class="concept-text reveal">
+    <span class="section-label">Our Concept</span>
+    <span class="section-title-en">Silk</span>
+    <h2 class="section-title">絹のように、<br>しなやかに。</h2>
+    <div class="divider"></div>
+    <p class="concept-body">
+      "キヌ"は<strong>絹</strong>を表します。フェイシャルに使用する化粧品ブランド『きぬもよふ』の主成分、天然のたんぱく質<strong>「絹セリシン」</strong>に由来する名前です。
+      <br><br>
+      否が応でも肩肘をはって頑張り過ぎてしまう大人女性に、<strong>"気まま"に力まず</strong>、自分らしく—。そんな思いを込めて、このサロンを作りました。
+      <br><br>
+      完全個室のプライベート空間で、あなただけのオーダーメイドケアをご提案します。
+    </p>
+  </div>
+  <div class="concept-visual reveal" style="transition-delay:0.2s">
+    <div class="concept-img-main" style="background: linear-gradient(135deg, #C5B49A 0%, #8FA89A 100%);"></div>
+    <div class="concept-img-accent">
+      <div>
+        <div class="concept-img-accent-text">20<br>years</div>
+        <span class="concept-img-accent-sub">of experience</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="features-header reveal">
+    <span class="section-label">Why kinukimama</span>
+    <h2 class="section-title">選ばれる理由</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature-item reveal">
+      <div class="feature-num">01</div>
+      <div class="feature-title">熟練の技術</div>
+      <p class="feature-text">セラピスト歴20年のオーナーが一人ひとりの状態を丁寧に見極め、その日の身体に合わせたオーダーメイドのケアをご提供します。</p>
+    </div>
+    <div class="feature-item reveal" style="transition-delay:0.15s">
+      <div class="feature-num">02</div>
+      <div class="feature-title">完全個室・女性専用</div>
+      <p class="feature-text">他のお客様の目を気にせず、完全にリラックスできるプライベートな空間。女性専用サロンだから、安心してお身体を委ねていただけます。</p>
+    </div>
+    <div class="feature-item reveal" style="transition-delay:0.3s">
+      <div class="feature-num">03</div>
+      <div class="feature-title">自由が丘・駅徒歩3分</div>
+      <p class="feature-text">自由が丘駅南口より徒歩3分。都会の喧噪を忘れさせてくれる静かな路地に佇む、隠れ家のようなサロンです。</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="menu-header">
+    <div class="reveal">
+      <span class="section-label">Treatment Menu</span>
+      <h2 class="section-title">施術メニュー</h2>
+      <div class="divider"></div>
+    </div>
+    <p class="menu-intro reveal" style="transition-delay:0.15s">
+      身体の声に耳を傾け、その日の状態に合わせてアプローチを調整するオーダーメイドスタイル。首肩のコリ、むくみ、たるみ、疲れ目など、気になるお悩みをお気軽にご相談ください。
+    </p>
+  </div>
+  <div class="menu-list">
+    <div class="menu-item reveal">
+      <span class="menu-item-en">Body Treatment</span>
+      <div class="menu-item-name">全身オイルリンパ＋もみほぐし</div>
+      <p class="menu-item-desc">人気No.1メニュー。オイルトリートメントともみほぐしを組み合わせ、根深い疲れをリセット。全身の循環を整え、身体の芯からほぐします。</p>
+      <div class="menu-item-price">¥12,300〜<span>/ 90分（新規）</span></div>
+    </div>
+    <div class="menu-item reveal" style="transition-delay:0.1s">
+      <span class="menu-item-en">Facial Treatment</span>
+      <div class="menu-item-name">絹美肌フェイシャル</div>
+      <p class="menu-item-desc">絹セリシン配合の『きぬもよふ』を使ったフェイシャルケア。表情筋をほぐしてリフトアップ。ほうれい線・たるみ・小顔効果が期待できます。</p>
+      <div class="menu-item-price">¥10,000〜<span>/ 60分〜</span></div>
+    </div>
+    <div class="menu-item reveal" style="transition-delay:0.2s">
+      <span class="menu-item-en">Reflexology</span>
+      <div class="menu-item-name">台湾式足つぼ</div>
+      <p class="menu-item-desc">足裏の反射区を丁寧に刺激する本格台湾式リフレクソロジー。むくみ・冷え・内臓の活性化にもアプローチ。施術後の足の軽さをぜひ体感を。</p>
+      <div class="menu-item-price">¥7,200〜<span>/ 60分（新規）</span></div>
+    </div>
+    <div class="menu-item reveal" style="transition-delay:0.3s">
+      <span class="menu-item-en">Full Course</span>
+      <div class="menu-item-name">きぬきまボディ＆フェイス</div>
+      <p class="menu-item-desc">顔も体も丸ごとケアするご褒美フルコース。ボディ・足つぼ・ヘッド・フェイシャルを組み合わせた、贅沢なオールインワンメニュー。</p>
+      <div class="menu-item-price">¥18,000<span>/ 120分</span></div>
+    </div>
+  </div>
+  <div class="menu-note reveal">
+    ※全メニュー完全予約制・女性専用です。その他のメニューやご不明な点はお気軽にお問い合わせください。<br>
+    ※施術中は電話に出られない場合がございます。留守番電話またはSMSにてご連絡ください。
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-visual reveal">
+    <div class="about-img-bg"></div>
+    <div class="about-img-front">
+      <p class="about-quote">"Every touch tells a story of healing."</p>
+      <p class="about-quote-ja">すべての施術に、癒しの物語があります。</p>
+    </div>
+  </div>
+  <div class="about-text reveal" style="transition-delay:0.2s">
+    <span class="section-label">About</span>
+    <h2 class="section-title">大人女性のための、<br>メンテナンスサロン。</h2>
+    <div class="divider"></div>
+    <p class="about-body">
+      日々懸命に生きる女性の身体と心には、定期的なメンテナンスが必要です。キヌキママは、リラクゼーションにとどまらず、身体の内側から整える「本質的なケア」を追求しています。
+      <br><br>
+      オイルリンパマッサージ、ボディケア、足つぼ、フェイシャルなど、様々なアプローチを組み合わせたオーダーメイドの施術で、あなたの身体が本来持つ自然治癒力を引き出します。
+      <br><br>
+      固くなった身体を解きほぐし、心も身体も軽くなって、日々を自分らしく快適に過ごすお手伝いをいたします。
+    </p>
+    <div class="about-profile">
+      <div class="about-profile-icon"><span>G</span></div>
+      <div>
+        <div class="about-profile-name">後藤 早苗</div>
+        <div class="about-profile-role">Owner Therapist ／ セラピスト歴20年</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SILK BAND -->
+<div class="silk-band reveal">
+  <div class="silk-band-text">kinukimama</div>
+  <div class="silk-band-divider"></div>
+  <p class="silk-band-ja">気まま、に。力まず、自分らしく。<br>自由が丘の隠れ家で、あなただけの時間を。</p>
+  <div class="silk-band-divider"></div>
+  <div class="silk-band-text" style="font-size:1rem; font-style:normal; letter-spacing:0.3em; color:var(--gold); font-family:'Cormorant Garamond', serif;">Jiyugaoka</div>
+</div>
+
+<!-- VOICE -->
+<section class="voice" id="voice">
+  <div class="voice-header reveal">
+    <span class="section-label">Customer Voice</span>
+    <h2 class="section-title">お客様の声</h2>
+    <div class="voice-rating">
+      <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      <span class="voice-score">4.97</span>
+      <span class="voice-count">（63件）</span>
+    </div>
+  </div>
+  <div class="voice-grid">
+    <div class="voice-card reveal">
+      <p class="voice-card-text">「先生の手がとても温かく、施術中は本当にリラックスできました。身体の悩みをしっかり聞いてくださり、的確にほぐしていただきました。終わった後の身体の軽さが感動的です。」</p>
+      <div class="voice-card-from">30代 / 会社員</div>
+    </div>
+    <div class="voice-card reveal" style="transition-delay:0.15s">
+      <p class="voice-card-text">「自由が丘でこんなに素晴らしいサロンに出会えて本当によかったです。個室なので気兼ねなく過ごせます。フェイシャルも受けたら、友人に『肌がきれいになった』と言われました。」</p>
+      <div class="voice-card-from">40代 / 主婦</div>
+    </div>
+    <div class="voice-card reveal" style="transition-delay:0.3s">
+      <p class="voice-card-text">「長年の肩こりと頭痛が改善されました。押されているのに痛くなく、気持ちよくて毎回眠ってしまいます。完全予約制で待ち時間もなく、忙しい私でも通えるサロンです。」</p>
+      <div class="voice-card-from">50代 / 自営業</div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shop" id="shop">
+  <div class="shop-visual reveal">
+    <div class="shop-brand">きぬもよふ</div>
+    <div class="shop-brand-sub">kinumoyofu — Silk Sericin Skincare</div>
+  </div>
+  <div class="reveal" style="transition-delay:0.2s">
+    <span class="section-label">Online Shop</span>
+    <h2 class="section-title">絹セリシンの<br>スキンケアブランド。</h2>
+    <div class="divider"></div>
+    <p class="shop-body">
+      キヌキママのフェイシャルで使用している化粧品ブランド『きぬもよふ』。絹を作る際に抽出される天然のたんぱく質「絹セリシン」を主成分とした、高保湿・ハリツヤケアのスキンケアシリーズです。
+      <br><br>
+      サロンケアの効果をご自宅でも。オンラインショップにてご購入いただけます。
+    </p>
+    <a href="#" class="btn-outline">Shop Now →</a>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access" id="access">
+  <div class="reveal">
+    <span class="section-label">Access</span>
+    <h2 class="section-title">アクセス</h2>
+    <div class="divider"></div>
+    <table class="access-table">
+      <tr>
+        <td>Address</td>
+        <td>東京都世田谷区奥沢５－20－10<br>テラス自由が丘 205号室</td>
+      </tr>
+      <tr>
+        <td>Access</td>
+        <td>東急東横線・大井町線<br>自由が丘駅 南口より徒歩3分</td>
+      </tr>
+      <tr>
+        <td>Hours</td>
+        <td>11:00 〜 20:00<br><span style="font-size:0.75rem;color:#999">時間外応相談（お電話にてお問い合わせください）</span></td>
+      </tr>
+      <tr>
+        <td>Holiday</td>
+        <td>不定休</td>
+      </tr>
+      <tr>
+        <td>Payment</td>
+        <td>Visa / Master / JCB / AMEX<br>交通系IC / iD / QUICPay 他</td>
+      </tr>
+      <tr>
+        <td>Parking</td>
+        <td>なし（周辺コインパーキングをご利用ください）</td>
+      </tr>
+    </table>
+    <div class="access-note">
+      ■ 1人営業のため施術中はお電話に出ることができません。<br>
+      　留守番電話にメッセージ、またはSMSにてお問い合わせください。<br>
+      ■ 妊娠中・産後間もない方はご遠慮いただいております。
+    </div>
+  </div>
+  <div class="access-map reveal" style="transition-delay:0.2s">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.5!2d139.6685!3d35.6073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f51e6e8c7a5f%3A0x7a3e9e8a1b2c3d4e!2z5Lim56eR44Oe44Oe!5e0!3m2!1sja!2sjp!4v1234567890"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <span class="section-label">Reservation</span>
+    <h2 class="section-title">ご予約・お問い合わせ</h2>
+    <p class="contact-sub">
+      完全予約制のため、事前のご予約をお願いいたします。<br>
+      ホットペッパービューティーからのオンライン予約、またはお電話・SMSにてお気軽にどうぞ。
+    </p>
+    <div class="contact-btns">
+      <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000596328" target="_blank" class="btn-gold">Online Reserve</a>
+      <a href="tel:" class="btn-ghost">Phone / SMS</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">kinukimama</div>
+    <span class="footer-brand-sub">キヌキママ 自由が丘</span>
+    <p class="footer-tagline">
+      気まま、に。力まず、自分らしく。<br>
+      大人女性のためのメンテナンスサロン。
+    </p>
+  </div>
+  <div class="footer-links">
+    <h4>Menu</h4>
+    <ul>
+      <li><a href="#concept">コンセプト</a></li>
+      <li><a href="#menu">施術メニュー</a></li>
+      <li><a href="#about">サロンについて</a></li>
+      <li><a href="#voice">お客様の声</a></li>
+      <li><a href="#shop">オンラインショップ</a></li>
+      <li><a href="#access">アクセス</a></li>
+    </ul>
+  </div>
+  <div class="footer-info">
+    <p>
+      東京都世田谷区奥沢５－20－10<br>
+      テラス自由が丘 205号室<br><br>
+      自由が丘駅南口より徒歩3分<br><br>
+      営業時間 11:00〜20:00<br>
+      完全予約制・女性専用
+    </p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span class="footer-copy">© 2025 kinukimama. All Rights Reserved.</span>
+  <span class="footer-copy">Jiyugaoka, Setagaya-ku, Tokyo</span>
+</div>
+
+<script>
+  // Loader
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+    }, 1400);
+  });
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
