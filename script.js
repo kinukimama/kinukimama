@@ -78,3 +78,31 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   const t=document.querySelector(a.getAttribute('href'));
   if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
 }));
+
+// HAMBURGER MENU
+const burger = document.getElementById('burger');
+const navDrawer = document.getElementById('navDrawer');
+const drawerOverlay = document.getElementById('drawerOverlay');
+
+function openDrawer() {
+  burger.classList.add('open');
+  navDrawer.classList.add('open');
+  drawerOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+  burger.classList.remove('open');
+  navDrawer.classList.remove('open');
+  drawerOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+burger.addEventListener('click', () => {
+  burger.classList.contains('open') ? closeDrawer() : openDrawer();
+});
+
+drawerOverlay.addEventListener('click', closeDrawer);
+
+// ドロワー内リンクをクリックしたら閉じる
+navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
