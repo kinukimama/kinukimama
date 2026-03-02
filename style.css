@@ -220,7 +220,7 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 .shop-text .sec-label{color:var(--gold-lt);}
 .shop-text .sec-h{color:var(--white);margin:1.2rem 0 0;}
 .shop-text .sec-rule{background:var(--gold-lt);}
-.shop-text .body-copy{color:rgba(253,250,245,0.55);}
+.shop-text .body-copy{color:rgba(253,250,245,0.82);}
 .shop-text .body-copy strong{color:var(--gold-lt);font-weight:400;}
 .btn-lt{display:inline-flex;align-items:center;gap:0.8rem;margin-top:2.5rem;font-family:'Cormorant Garamond',serif;font-size:0.78rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-lt);border:1px solid rgba(201,170,124,0.4);padding:0.9rem 2.2rem;transition:all 0.3s;}
 .btn-lt:hover{background:var(--gold-lt);color:var(--sage);border-color:var(--gold-lt);}
