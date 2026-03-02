@@ -297,7 +297,7 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
   .drawer-cta:hover{background:var(--gold);color:#fff;}
 
   /* Overlay */
-  .drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:240;opacity:0;pointer-events:none;transition:opacity 0.38s;}
+  .drawer-overlay{display: block;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:240;opacity:0;pointer-events:none;transition:opacity 0.38s;}
   .drawer-overlay.open{opacity:1;pointer-events:auto;}
 
   .hero-body{grid-template-columns:1fr;padding:0 5vw 8vmin;}
