@@ -195,6 +195,7 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 /* ── VOICE ── */
 .voice{padding:11vmin 5vw;background:var(--white);}
 .voice-hd{text-align:center;margin-bottom:5vmin;}
+.voice-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.78rem;color:var(--ink-soft);letter-spacing:0.12em;margin-top:0.6rem;}
 .voice-rating{display:flex;align-items:center;justify-content:center;gap:0.35rem;margin-top:1rem;}
 .star{color:var(--gold);font-size:0.9rem;}
 .v-score{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--gold);font-weight:300;margin-left:0.4rem;}
