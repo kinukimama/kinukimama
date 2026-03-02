@@ -173,7 +173,7 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 .ab-dots{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:0.6rem;z-index:10;}
 .ab-dot{width:20px;height:1px;background:rgba(253,250,245,0.35);cursor:pointer;transition:background 0.3s,width 0.3s;}
 .ab-dot.active{background:var(--gold-lt);width:32px;}
-.ab-card{background:var(--sage);padding:2rem 2.4rem;margin-bottom:2.5rem;}
+.ab-card{position:absolute;right:-1.5rem;bottom:3rem;background:var(--sage);padding:2.8rem 3rem;max-width:280px;}
 .ab-card-q{font-family:'Cormorant',serif;font-style:italic;font-size:clamp(1rem,1.5vw,1.2rem);color:var(--gold-lt);line-height:1.65;margin-bottom:0.8rem;}
 .ab-card-ja{font-size:0.65rem;color:rgba(201,170,124,0.4);letter-spacing:0.1em;line-height:1.9;}
 .ab-text{padding:9vmin 6vw;display:flex;flex-direction:column;justify-content:center;background:var(--bg);}
@@ -269,6 +269,7 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
   .si-img-wrap{min-height:300px;}
   .ab-visual{min-height:480px;}
   .ab-slide.portrait{display:none;}
+  .ab-card{position:relative;right:auto;bottom:auto;max-width:100%;margin:0;}
   .shop-visual{min-height:260px;border-right:none;border-bottom:1px solid rgba(201,170,124,0.18);}
   .philosophy{padding:8vmin 5vw;}
   .phil-block{grid-template-columns:1fr;}
