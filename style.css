@@ -32,11 +32,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:2rem 5vw;display:fle
 nav.on{background:rgba(247,244,239,0.97);backdrop-filter:blur(8px);padding:1.1rem 5vw;border-bottom:1px solid rgba(168,137,92,0.15);}
 .logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;font-weight:400;letter-spacing:0.12em;color:var(--white);transition:color 0.4s;display:flex;align-items:center;gap:0.6rem;}
 nav.on .logo{color:var(--sage);}
-.logo img{width:36px;height:36px;object-fit:contain;transition:opacity 0.4s;}
+.logo-img-wrap{position:relative;width:36px;height:36px;flex-shrink:0;}
+.logo-img-wrap img{position:absolute;inset:0;width:36px;height:36px;object-fit:contain;transition:opacity 0.4s;}
 .logo-white{opacity:1;}
-.logo-green{opacity:0;position:absolute;}
+.logo-green{opacity:0;}
 nav.on .logo-white{opacity:0;}
-nav.on .logo-green{opacity:1;position:relative;}
+nav.on .logo-green{opacity:1;}
 .f-logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;font-weight:300;color:var(--gold-lt);letter-spacing:0.15em;display:flex;align-items:center;gap:0.6rem;}
 .f-logo img{width:44px;height:44px;object-fit:contain;}
 .nav-links{display:flex;gap:3.5rem;list-style:none;}
