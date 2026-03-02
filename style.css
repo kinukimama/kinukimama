@@ -161,7 +161,7 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 
 /* ── ABOUT — asymmetric ── */
 .about{display:grid;grid-template-columns:1fr 1fr;min-height:700px;align-items:start;}
-.ab-visual{position:relative;overflow:hidden;background:var(--bg-warm);}
+.ab-visual{position:relative;overflow:hidden;background:var(--bg-warm);height:700px;}
 .ab-visual img{height:100%;object-fit:cover;opacity:0.92;}
 /* About slideshow */
 .ab-slides{position:absolute;inset:0;}
