@@ -1,5 +1,10 @@
 window.addEventListener('load',()=>{
-  setTimeout(()=>document.getElementById('loader').classList.add('gone'),1400);
+  const skip = new URLSearchParams(location.search).get('skip');
+  if(skip){
+    document.getElementById('loader').classList.add('gone');
+  } else {
+    setTimeout(()=>document.getElementById('loader').classList.add('gone'),1400);
+  }
 });
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>60));
