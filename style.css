@@ -241,7 +241,7 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 
 /* ── ACCESS ── */
 .access{padding:11vmin 5vw;background:var(--bg);display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:start;}
-.access-map{width:100%;overflow:hidden;padding-top:4.5rem;}
+.access-map{width:100%;padding-top:4.5rem;}
 .access-map iframe{width:100%;height:400px;display:block;border:none;filter:sepia(12%) saturate(80%);}
 .access-tbl{width:100%;border-collapse:collapse;margin-top:2rem;}
 .access-tbl tr{border-bottom:1px solid var(--bg-warm);}
