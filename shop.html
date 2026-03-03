@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | kinukimama</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .shop-main {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 24px 100px;
+      background-color: #faf9f7;
+    }
+    .shop-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #9b8e7e;
+      margin-bottom: 1.8rem;
+    }
+    .shop-title {
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: #2e2e2e;
+      line-height: 1.3;
+      margin-bottom: 1.6rem;
+    }
+    .shop-title em {
+      font-style: italic;
+      color: #7a9e7e;
+    }
+    .shop-divider {
+      width: 36px;
+      height: 1px;
+      background: #c4b9aa;
+      margin: 0 auto 2rem;
+    }
+    .shop-notice {
+      max-width: 460px;
+      font-size: 0.93rem;
+      line-height: 2;
+      color: #5a5a5a;
+      margin-bottom: 3rem;
+    }
+    .shop-notice strong {
+      display: block;
+      color: #3a3a3a;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .shop-back {
+      display: inline-block;
+      padding: 0.75rem 2.2rem;
+      border: 1px solid #7a9e7e;
+      color: #7a9e7e;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .shop-back:hover {
+      background: #7a9e7e;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="logo">
+    <span class="logo-img-wrap">
+      <img class="logo-white" src="images/img_png_001.png" alt="kinukimama">
+      <img class="logo-green" src="images/img_png_green.png" alt="kinukimama">
+    </span>
+    kinukimama
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#concept">Silk</a></li>
+    <li><a href="index.html#story">Story</a></li>
+    <li><a href="index.html#menu">Menu</a></li>
+    <li><a href="index.html#flow">Flow</a></li>
+    <li><a href="index.html#access">Access</a></li>
+  </ul>
+  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000596328" target="_blank" class="nav-cta">Reserve</a>
+  <button class="burger" id="burger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="nav-drawer" id="navDrawer">
+  <ul class="drawer-links">
+    <li><a href="index.html#concept">Silk</a></li>
+    <li><a href="index.html#story">Story</a></li>
+    <li><a href="index.html#menu">Menu</a></li>
+    <li><a href="index.html#flow">Flow</a></li>
+    <li><a href="index.html#access">Access</a></li>
+  </ul>
+  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000596328" target="_blank" class="drawer-cta">Reserve</a>
+</div>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<!-- MAIN -->
+<main>
+  <section class="shop-main">
+    <p class="shop-label">Online Shop</p>
+    <h1 class="shop-title">Coming <em>Soon</em></h1>
+    <div class="shop-divider"></div>
+    <div class="shop-notice">
+      <strong>店舗にてお取り扱い中</strong>
+      現在オンラインショップは準備中です。<br>
+      ご来店の際はサロン店頭にてお取り扱い商品をご覧いただけます。<br>
+      お気軽にスタッフへお声がけください。
+    </div>
+    <a href="index.html" class="shop-back">← トップへ戻る</a>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="f-logo">
+      <img src="images/img_png_001.png" alt="">
+      kinukimama
+    </div>
+    <span class="f-sub">キヌキママ 自由が丘</span>
+    <p class="f-tag">絹に宿る癒しの力で、<br>あなたを解き放つ。<br><br>気まま、に。力まず、自分らしく。</p>
+  </div>
+  <div class="f-nav">
+    <h4>Navigation</h4>
+    <ul>
+      <li><a href="index.html#concept">絹について</a></li>
+      <li><a href="index.html#story">フィロソフィー</a></li>
+      <li><a href="index.html#menu">施術メニュー</a></li>
+      <li><a href="index.html#flow">施術の流れ</a></li>
+      <li><a href="index.html#about">サロンについて</a></li>
+      <li><a href="shop.html">オンラインショップ</a></li>
+      <li><a href="index.html#access">アクセス</a></li>
+    </ul>
+  </div>
+  <div class="f-info">
+    <p>東京都世田谷区奥沢５－20－10<br>テラス自由が丘 205号室<br><br>自由が丘駅南口より徒歩3分<br><br>営業時間 11:00〜20:00<br>完全予約制・女性専用</p>
+  </div>
+</footer>
+<div class="footer-btm">
+  <span>© 2025 kinukimama. All Rights Reserved.</span>
+  <span>Silk Sericin Relaxation — Jiyugaoka, Tokyo</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
