@@ -1,9 +1,11 @@
 window.addEventListener('load',()=>{
+  const loader = document.getElementById('loader');
+  if(!loader) return;
   const skip = new URLSearchParams(location.search).get('skip');
   if(skip){
-    document.getElementById('loader').classList.add('gone');
+    loader.classList.add('gone');
   } else {
-    setTimeout(()=>document.getElementById('loader').classList.add('gone'),1400);
+    setTimeout(()=>loader.classList.add('gone'),1400);
   }
 });
 const nav=document.getElementById('nav');
