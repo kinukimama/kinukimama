@@ -15,27 +15,29 @@ const dots   = document.querySelectorAll('.hero-dot');
 let current  = 0;
 let timer;
 
-function goTo(idx) {
-  slides[current].classList.remove('active');
-  dots[current].classList.remove('active');
-  current = (idx + slides.length) % slides.length;
-  slides[current].classList.add('active');
-  dots[current].classList.add('active');
-}
+if (slides.length > 0) {
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
 
-function next() { goTo(current + 1); }
+  function next() { goTo(current + 1); }
 
-function startAuto() {
-  clearInterval(timer);
-  timer = setInterval(next, 6000);
-}
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(next, 6000);
+  }
 
-dots.forEach(dot => dot.addEventListener('click', () => {
-  goTo(parseInt(dot.dataset.idx));
+  dots.forEach(dot => dot.addEventListener('click', () => {
+    goTo(parseInt(dot.dataset.idx));
+    startAuto();
+  }));
+
   startAuto();
-}));
-
-startAuto();
+}
 
 // ABOUT SLIDESHOW
 const abSlides = document.querySelectorAll('.ab-slide');
@@ -43,29 +45,30 @@ const abDots   = document.querySelectorAll('.ab-dot');
 let abCurrent  = 0;
 let abTimer;
 
-function abGoTo(idx) {
-  abSlides[abCurrent].classList.remove('active');
-  abDots[abCurrent].classList.remove('active');
-  abCurrent = (idx + abSlides.length) % abSlides.length;
-  // モバイルでportraitスライドはスキップ
-  if (window.innerWidth <= 800 && abSlides[abCurrent].classList.contains('portrait')) {
-    abCurrent = (abCurrent + 1) % abSlides.length;
+if (abSlides.length > 0) {
+  function abGoTo(idx) {
+    abSlides[abCurrent].classList.remove('active');
+    abDots[abCurrent].classList.remove('active');
+    abCurrent = (idx + abSlides.length) % abSlides.length;
+    if (window.innerWidth <= 800 && abSlides[abCurrent].classList.contains('portrait')) {
+      abCurrent = (abCurrent + 1) % abSlides.length;
+    }
+    abSlides[abCurrent].classList.add('active');
+    abDots[abCurrent].classList.add('active');
   }
-  abSlides[abCurrent].classList.add('active');
-  abDots[abCurrent].classList.add('active');
-}
 
-function abStartAuto() {
-  clearInterval(abTimer);
-  abTimer = setInterval(() => abGoTo(abCurrent + 1), 5000);
-}
+  function abStartAuto() {
+    clearInterval(abTimer);
+    abTimer = setInterval(() => abGoTo(abCurrent + 1), 5000);
+  }
 
-abDots.forEach(dot => dot.addEventListener('click', () => {
-  abGoTo(parseInt(dot.dataset.ab));
+  abDots.forEach(dot => dot.addEventListener('click', () => {
+    abGoTo(parseInt(dot.dataset.ab));
+    abStartAuto();
+  }));
+
   abStartAuto();
-}));
-
-abStartAuto();
+}
 
 // INTERSECTION OBSERVER
 const obs=new IntersectionObserver(entries=>{
