@@ -277,7 +277,7 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
 .f-info p{font-size:0.72rem;color:rgba(253,250,245,0.45);line-height:2;}
 .footer-btm{background:#0D1510;padding:1.4rem 5vw;display:flex;justify-content:space-between;align-items:center;}
 .footer-btm span{font-family:'Cormorant Garamond',serif;font-size:0.65rem;color:rgba(253,250,245,0.35);letter-spacing:0.15em;}
-.footer-legal{font-family:'Cormorant Garamond',serif;font-size:0.62rem;letter-spacing:0.2em;color:rgba(253,250,245,0.45);font-weight:300;border-bottom:1px solid rgba(253,250,245,0.25);transition:color 0.3s,border-color 0.3s;}
+.footer-legal{font-family:'Cormorant Garamond',serif;font-size:0.74rem;letter-spacing:0.2em;color:rgba(253,250,245,0.45);font-weight:300;border-bottom:1px solid rgba(253,250,245,0.25);transition:color 0.3s,border-color 0.3s;}
 .footer-legal:hover{color:rgba(201,170,124,0.6);border-color:rgba(201,170,124,0.3);}
 
 /* ── MOBILE ── */
