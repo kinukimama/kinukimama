@@ -423,7 +423,8 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
 .cf-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23A8895C' stroke-width='1' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0.4rem center;}
 .cf-textarea{border:1px solid var(--bg-deep);padding:1rem;min-height:300px;resize:vertical;line-height:2;}
 .cf-textarea:focus{border-color:var(--gold);}
-.cf-captcha-note{font-size:0.86rem;color:var(--ink-soft);line-height:2;text-align:left;margin:2.5rem auto 0;display:table;}
+.cf-captcha-note{font-size:0.86rem;color:var(--ink-soft);line-height:2;text-align:left;margin:2.5rem auto 0;width:fit-content;}
+.cf-submit{display:flex;justify-content:center;margin-top:2rem;width:100%;}
 .btn-submit{font-family:'Cormorant Garamond',serif;font-size:0.98rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);background:var(--gold-lt);border:none;padding:1.1rem 4rem;cursor:pointer;transition:background 0.3s,letter-spacing 0.3s;}
 .btn-submit:hover{background:var(--gold);letter-spacing:0.4em;}
 .cf-err{display:block;font-size:0.72rem;color:#b84c4c;margin-top:0.5rem;min-height:1rem;}
