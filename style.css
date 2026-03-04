@@ -231,8 +231,6 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 .shop-en{font-size:1.1rem;color:rgba(201,170,124,0.5);letter-spacing:0.3em;position:relative;z-index:1;}
 .shop-sub{font-size:0.58rem;letter-spacing:0.38em;color:rgba(201,170,124,0.25);text-transform:uppercase;position:relative;z-index:1;}
 .shop-text{padding:9vmin 6vw;display:flex;flex-direction:column;justify-content:center;}
-.shop-text{position:relative;overflow:hidden;}
-.shop-text::before{content:'kinumoyou';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,11vw,8rem);font-weight:300;font-style:italic;color:rgba(255,255,255,0.04);pointer-events:none;white-space:nowrap;letter-spacing:0.1em;}
 .shop-text .sec-label{color:var(--gold-lt);}
 .shop-text .sec-h{color:var(--white);margin:1.2rem 0 0;}
 .shop-text .sec-rule{background:var(--gold-lt);}
@@ -256,7 +254,6 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 
 /* ── CONTACT ── */
 .contact{background:var(--sage);padding:8vmin 5vw;text-align:center;position:relative;overflow:hidden;}
-.contact::before{content:'Reserve';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:18vw;font-weight:300;font-style:italic;color:rgba(255,255,255,0.02);pointer-events:none;white-space:nowrap;}
 .contact-inner{position:relative;z-index:1;}
 .contact .sec-label{color:var(--gold-lt);display:block;margin-bottom:0;}
 .contact .sec-h{color:var(--white);margin:1.2rem 0;}
