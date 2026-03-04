@@ -244,11 +244,12 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 .access-inner{max-width:720px;margin:0 auto;text-align:center;}
 .access-map{width:100%;margin-top:3rem;}
 .access-map iframe{width:100%;height:420px;display:block;border:none;filter:sepia(12%) saturate(80%);}
-.access-tbl{width:100%;max-width:560px;border-collapse:collapse;margin:2rem auto 0;}
+.access-tbl{width:100%;border-collapse:collapse;margin:2rem auto 0;}
 .access-tbl tr{border-bottom:1px solid var(--bg-warm);}
 .access-tbl td{padding:1rem 0;font-size:0.88rem;color:var(--ink-soft);line-height:1.9;vertical-align:top;}
 .access-tbl td:first-child{font-family:'Cormorant Garamond',serif;font-size:0.62rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;white-space:nowrap;padding-right:2rem;width:150px;padding-top:1.3rem;}
 .access-directions{margin-top:2.5rem;padding:2rem 2.5rem;background:var(--bg-warm);border-left:3px solid var(--gold);border-radius:2px;text-align:left;}
+.access-tbl td:last-child{text-align:center;}
 .access-dir-label{display:block;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
 .access-directions p{font-size:0.88rem;line-height:2;color:var(--ink-mid);}
 
