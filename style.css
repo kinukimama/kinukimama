@@ -267,11 +267,9 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 .contact .sec-label{color:var(--gold-lt);display:block;margin-bottom:0;}
 .contact .sec-h{color:var(--white);margin:1.2rem 0;}
 .contact-p{font-size:0.9rem;color:rgba(253,250,245,0.65);line-height:2.1;margin-bottom:3rem;}
-.c-btns{display:grid;grid-template-columns:1fr;width:min(520px,100%);gap:1.2rem;margin:0 auto;}
-.btn-reserve{display:flex;align-items:center;justify-content:center;padding:1rem 2.8rem;font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);background:var(--gold-lt);transition:all 0.3s;}
+.c-btns{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;width:min(520px,100%);margin:0 auto;}
+.btn-reserve{grid-column:1 / -1;display:flex;align-items:center;justify-content:center;padding:1rem 2.8rem;font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);background:var(--gold-lt);transition:all 0.3s;}
 .btn-reserve:hover{background:var(--gold);letter-spacing:0.4em;}
-.c-btns-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
-.c-btns-row .btn-ghost{justify-content:center;}
 .btn-gold{display:inline-flex;align-items:end;gap:0.7rem;font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);background:var(--gold-lt);padding:1rem 2.8rem;transition:all 0.3s;}
 .btn-gold:hover{background:var(--gold);letter-spacing:0.4em;}
 .btn-ghost{display:inline-flex;align-items:center;gap:0.7rem;font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(253,250,245,0.7);background:transparent;border:1px solid rgba(253,250,245,0.18);padding:1rem 2.8rem;transition:all 0.3s;}
@@ -426,6 +424,5 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
 .btn-submit{font-family:'Cormorant Garamond',serif;font-size:0.82rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);background:var(--gold-lt);border:none;padding:1.1rem 4rem;cursor:pointer;transition:background 0.3s,letter-spacing 0.3s;}
 .btn-submit:hover{background:var(--gold);letter-spacing:0.4em;}
 @media(max-width:800px){
-.c-btns{width:100%;}
-.c-btns-row{grid-template-columns:1fr;}
+.c-btns{width:100%;grid-template-columns:1fr;}
 }
