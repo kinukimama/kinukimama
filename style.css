@@ -418,9 +418,10 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
 .cf-label{display:block;font-family:'Cormorant Garamond',serif;font-size:0.74rem;letter-spacing:0.42em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
 .cf-req{color:rgba(168,137,92,0.5);margin-left:0.3rem;}
 .cf-input,.cf-select,.cf-textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--bg-deep);padding:0.7rem 0;font-family:'Shippori Mincho B1',serif;font-size:1.14rem;color:var(--ink);transition:border-color 0.3s;outline:none;-webkit-appearance:none;appearance:none;border-radius:0;}
+.cf-input::placeholder{color:rgba(92,82,72,0.25);}
 .cf-input:focus,.cf-select:focus{border-bottom-color:var(--gold);}
 .cf-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23A8895C' stroke-width='1' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0.4rem center;}
-.cf-textarea{border:1px solid var(--bg-deep);padding:1rem;min-height:180px;resize:vertical;line-height:2;}
+.cf-textarea{border:1px solid var(--bg-deep);padding:1rem;min-height:180px;resize:vertical;line-height:2;font-size:0.9rem;}
 .cf-textarea:focus{border-color:var(--gold);}
 .cf-captcha-note{font-size:0.86rem;color:var(--ink-soft);line-height:2;text-align:center;margin:2.5rem 0 0;}
 .cf-submit{display:flex;justify-content:center;margin-top:2rem;}
