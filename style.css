@@ -359,7 +359,7 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
 
 /* ── PAGE HERO ── */
 .page-hero{background:var(--sage);padding:clamp(7rem,14vmin,10rem) 5vw clamp(4rem,8vmin,6rem);position:relative;overflow:hidden;}
-.page-hero::before{content:'';position:absolute;right:22vw;bottom:-2rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(5rem,14vw,13rem);font-weight:300;color:rgba(201,170,124,0.07);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;}
+.page-hero::before{content:'';position:absolute;right:1vw;bottom:-2rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(5rem,14vw,13rem);font-weight:300;color:rgba(201,170,124,0.07);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;}
 .page-hero--privacy::before{content:'Privacy';}
 .page-hero--contact::before{content:'Contact';}
 .ph-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;}
