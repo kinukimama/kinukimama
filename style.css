@@ -272,7 +272,7 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 .btn-reserve:hover{background:var(--gold);letter-spacing:0.4em;}
 .btn-gold{display:inline-flex;align-items:end;gap:0.7rem;font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);background:var(--gold-lt);padding:1rem 2.8rem;transition:all 0.3s;}
 .btn-gold:hover{background:var(--gold);letter-spacing:0.4em;}
-.btn-ghost{display:inline-flex;align-items:center;gap:0.7rem;font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(253,250,245,0.7);background:transparent;border:1px solid rgba(253,250,245,0.18);padding:1rem 2.8rem;transition:all 0.3s;}
+.btn-ghost{display:flex;align-items:center;justify-content:center;gap:0.7rem;font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(253,250,245,0.7);background:transparent;border:1px solid rgba(253,250,245,0.18);padding:1rem 2.8rem;transition:all 0.3s;}
 .btn-ghost:hover{border-color:var(--gold-lt);color:var(--gold-lt);}
 
 /* ── FOOTER ── */
