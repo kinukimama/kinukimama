@@ -240,9 +240,10 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 .btn-lt:hover{background:var(--gold-lt);color:var(--sage);border-color:var(--gold-lt);}
 
 /* ── ACCESS ── */
-.access{padding:11vmin 5vw;background:var(--bg);display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:stretch;}
-.access-map{width:100%;display:flex;flex-direction:column;}
-.access-map iframe{width:100%;flex:1;min-height:300px;display:block;border:none;filter:sepia(12%) saturate(80%);}
+.access{padding:11vmin 5vw;background:var(--bg);}
+.access-inner{max-width:720px;margin:0 auto;}
+.access-map{width:100%;margin-top:3rem;}
+.access-map iframe{width:100%;height:420px;display:block;border:none;filter:sepia(12%) saturate(80%);}
 .access-tbl{width:100%;border-collapse:collapse;margin-top:2rem;}
 .access-tbl tr{border-bottom:1px solid var(--bg-warm);}
 .access-tbl td{padding:1rem 0;font-size:0.8rem;color:var(--ink-soft);line-height:1.9;vertical-align:top;}
