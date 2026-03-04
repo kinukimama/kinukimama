@@ -426,6 +426,8 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
 .cf-submit{display:flex;justify-content:center;margin-top:2rem;}
 .btn-submit{font-family:'Cormorant Garamond',serif;font-size:0.98rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);background:var(--gold-lt);border:none;padding:1.1rem 4rem;cursor:pointer;transition:background 0.3s,letter-spacing 0.3s;}
 .btn-submit:hover{background:var(--gold);letter-spacing:0.4em;}
+.cf-err{display:block;font-size:0.72rem;color:#b84c4c;margin-top:0.5rem;min-height:1rem;}
+.cf-tel-note{font-family:'Shippori Mincho B1',serif;font-size:0.65rem;color:var(--ink-soft);letter-spacing:0.05em;margin-left:0.8rem;text-transform:none;}
 @media(max-width:800px){
 .c-btns{width:100%;grid-template-columns:1fr;}
 }

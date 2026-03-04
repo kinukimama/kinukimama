@@ -76,7 +76,7 @@
 <main>
   <div class="cf-wrap">
 
-    <form action="https://formspree.io/f/XXXXXXXX" method="POST">
+    <form action="https://formspree.io/f/XXXXXXXX" method="POST" id="cf-form>
 
       <!-- お問い合わせ項目 -->
       <div class="cf-field">
@@ -105,8 +105,16 @@
 
       <!-- 電話番号 -->
       <div class="cf-field">
-        <label class="cf-label" for="cf-tel">電話番号（ハイフンなし半角）<span class="cf-req">*</span></label>
-        <input class="cf-input" type="tel" id="cf-tel" name="電話番号" placeholder="09012345678">
+        <label class="cf-label" for="cf-tel">電話番号（ハイフンなし半角）<span class="cf-req">*</span><span class="cf-tel-note">※携帯番号とのどちらか必須</span></label>
+        <input class="cf-input" type="tel" id="cf-tel" name="電話番号" placeholder="0312345678" maxlength="11" inputmode="numeric">
+        <span class="cf-err" id="cf-tel-err"></span>
+      </div>
+
+      <!-- 携帯番号 -->
+      <div class="cf-field">
+        <label class="cf-label" for="cf-mobile">携帯番号（ハイフンなし半角）<span class="cf-req">*</span><span class="cf-tel-note">※電話番号との どちらか必須</span></label>
+        <input class="cf-input" type="tel" id="cf-mobile" name="携帯番号" placeholder="09012345678" maxlength="11" inputmode="numeric">
+        <span class="cf-err" id="cf-mobile-err"></span>
       </div>
 
       <!-- お問い合わせ内容 -->
@@ -118,7 +126,7 @@
       <p class="cf-captcha-note">このフォームはスパム対策により保護されています。<br>送信内容を確認の上、ご返信いたします（返信までに数日お時間をいただく場合があります）。</p>
 
       <div class="cf-submit">
-        <button type="submit" class="btn-submit">送信</button>
+        <button type="button" class="btn-submit" id="cf-submit-btn">送信</button>>
       </div>
 
     </form>
