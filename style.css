@@ -138,7 +138,7 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 /* ── MENU ── */
 .menu{padding:11vmin 5vw;background:var(--bg);}
 .menu-top{text-align:center;margin-bottom:5vmin;}
-.menu-intro-txt{font-size:0.9rem;line-height:2.2;color:var(--ink-soft);margin-top:1.8rem;}
+.menu-intro-txt{font-size:0.9rem;line-height:2.2;color:var(--ink-soft);margin-top:1.8rem;margin-bottom:2rem;text-align:center;}
 .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
 .mc{background:var(--white);padding:3.2rem;position:relative;overflow:hidden;transition:transform 0.35s;}
 .mc:hover{transform:translateY(-4px);}
