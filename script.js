@@ -184,6 +184,26 @@ const emailInput = document.getElementById('cf-email');
       valid = false;
     }
 
-    if (valid) cfForm.submit();
+    if (valid) {
+      btn.disabled = true;
+      btn.textContent = '送信中...';
+      fetch(cfForm.action, {
+        method: 'POST',
+        body: new FormData(cfForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(res => {
+        if (res.ok) {
+          window.location.href = 'index.html?skip=1';
+        } else {
+          btn.disabled = false;
+          btn.textContent = '送信';
+          alert('送信に失敗しました。時間をおいて再度お試しください。');
+        }
+      }).catch(() => {
+        btn.disabled = false;
+        btn.textContent = '送信';
+        alert('通信エラーが発生しました。時間をおいて再度お試しください。');
+      });
+    }
   });
 }
