@@ -220,3 +220,44 @@ if (thanksSec) {
     }
   }, 1000);
 }
+// NEWS BANNER（index.html）
+const newsBanner = document.getElementById('newsBanner');
+if (newsBanner) {
+  fetch('news.json')
+    .then(res => res.json())
+    .then(data => {
+      if (data.length === 0) return;
+      const latest = data[0];
+      document.getElementById('nbTag').textContent = latest.tag;
+      document.getElementById('nbTitle').textContent = latest.title;
+      newsBanner.style.display = 'flex';
+    })
+    .catch(() => {});
+}
+
+// NEWS LIST（news.html）
+const newsList = document.getElementById('news-list');
+if (newsList) {
+  fetch('news.json')
+    .then(res => res.json())
+    .then(data => {
+      if (data.length === 0) {
+        newsList.innerHTML = '<p class="news-loading">現在お知らせはありません。</p>';
+        return;
+      }
+      newsList.innerHTML = data.map(item => `
+        <div class="news-card">
+          <div class="news-card-head">
+            <span class="news-date">${item.date}</span>
+            <span class="news-tag news-tag--${item.tag}">${item.tag}</span>
+          </div>
+          <div class="news-title">${item.title}</div>
+          <p class="news-body">${item.body}</p>
+          ${item.link ? `<a href="${item.link}" target="_blank" class="news-card-link">${item.linkText || 'こちら'} →</a>` : ''}
+        </div>
+      `).join('');
+    })
+    .catch(() => {
+      newsList.innerHTML = '<p class="news-loading">読み込みに失敗しました。</p>';
+    });
+}

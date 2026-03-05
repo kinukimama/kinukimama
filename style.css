@@ -409,10 +409,39 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
 .back-btn:hover{background:var(--sage);color:var(--white);border-color:var(--sage);}
 .back-btn::before{content:'←';font-family:serif;transition:transform 0.3s;}
 .back-btn:hover::before{transform:translateX(-4px);}
+
+/* THANKS */
 .thanks-wrap{text-align:center;padding:4rem 0;}
 .thanks-msg{font-size:1rem;line-height:2.2;color:var(--ink-mid);margin-bottom:2.5rem;}
 .thanks-count{font-size:0.78rem;letter-spacing:0.12em;color:var(--ink-soft);margin-bottom:0;}
 .thanks-count span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);}
+
+/* NEWS BANNER */
+.news-banner{background:var(--sage);padding:0.9rem 5vw;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;}
+.nb-tag{font-size:0.62rem;letter-spacing:0.15em;padding:0.15rem 0.6rem;border:1px solid rgba(253,250,245,0.4);color:rgba(253,250,245,0.85);flex-shrink:0;}
+.nb-title{font-family:'Shippori Mincho B1',serif;font-size:0.85rem;color:var(--white);flex:1;min-width:0;}
+.nb-link{font-family:'Cormorant Garamond',serif;font-size:0.75rem;letter-spacing:0.2em;color:var(--gold-lt);white-space:nowrap;border-bottom:1px solid rgba(201,170,124,0.4);padding-bottom:0.1rem;transition:all 0.3s;flex-shrink:0;}
+.nb-link:hover{color:var(--white);border-color:rgba(253,250,245,0.5);}
+
+/* NEWS PAGE */
+.news-wrap{max-width:768px;margin:0 auto;padding:3rem 5vw 4rem;}
+.news-loading{text-align:center;color:var(--ink-soft);font-size:0.9rem;padding:4rem 0;}
+.news-card{border-bottom:1px solid rgba(168,137,92,0.2);padding:2rem 0;}
+.news-card:first-child{border-top:1px solid rgba(168,137,92,0.2);}
+.news-card-head{display:flex;align-items:center;gap:1.2rem;margin-bottom:0.8rem;}
+.news-date{font-family:'Cormorant Garamond',serif;font-size:0.88rem;letter-spacing:0.1em;color:var(--ink-soft);}
+.news-tag{font-size:0.65rem;letter-spacing:0.15em;padding:0.2rem 0.7rem;border:1px solid currentColor;}
+.news-tag--休業{color:#9b4c4c;border-color:rgba(155,76,76,0.4);background:rgba(155,76,76,0.06);}
+.news-tag--キャンペーン{color:#7a6e2e;border-color:rgba(122,110,46,0.4);background:rgba(122,110,46,0.06);}
+.news-tag--お知らせ{color:var(--sage-mid);border-color:rgba(68,92,78,0.4);background:rgba(68,92,78,0.06);}
+.news-tag--新メニュー{color:#5c6e8a;border-color:rgba(92,110,138,0.4);background:rgba(92,110,138,0.06);}
+.news-title{font-family:'Hina Mincho',serif;font-size:1.05rem;color:var(--ink);margin-bottom:0.6rem;}
+.news-body{font-size:0.9rem;line-height:2;color:var(--ink-mid);}
+.news-card-link{display:inline-block;margin-top:0.8rem;font-family:'Cormorant Garamond',serif;font-size:0.78rem;letter-spacing:0.2em;color:var(--gold);border-bottom:1px solid rgba(168,137,92,0.4);padding-bottom:0.1rem;transition:all 0.3s;}
+.news-card-link:hover{color:var(--sage);border-color:var(--sage);}
+
+/* PAGE HERO NEWS */
+.page-hero--news::before{content:'News';}
 
 /* ── MOBILE (privacy追加分) ── */
 @media(max-width:800px){
