@@ -117,6 +117,13 @@ drawerOverlay.addEventListener('click', closeDrawer);
 // ドロワー内リンクをクリックしたら閉じる
 navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
 
+// ACCORDION MENU
+document.querySelectorAll('.ac-head').forEach(head => {
+  head.addEventListener('click', () => {
+    head.closest('.ac-item').classList.toggle('open');
+  });
+});
+
 // MAP FACADE
 const mapFacade = document.getElementById('mapFacade');
 if (mapFacade) {
