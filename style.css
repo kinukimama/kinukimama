@@ -46,7 +46,7 @@ nav.on .logo-green{opacity:1;}
 .logo-txt-green{opacity:0;}
 nav.on .logo-txt-white{opacity:0;}
 nav.on .logo-txt-green{opacity:1;}
-.f-logo{display:flex;align-items:center;margin-left:-8px;}.f-logo img{width:44px;height:44px;object-fit:contain;}
+.f-logo{display:flex;align-items:center;margin-left:-9px;}.f-logo img{width:44px;height:44px;object-fit:contain;}
 .nav-links{display:flex;gap:3.5rem;list-style:none;}
 .nav-links a{font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:rgba(253,250,245,0.85);transition:color 0.3s;}
 nav.on .nav-links a{color:var(--ink-mid);}
