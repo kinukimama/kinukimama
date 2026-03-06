@@ -413,6 +413,7 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
 .page-hero--privacy::before{content:'Privacy';}
 .page-hero--contact::before{content:'Contact';}
 .page-hero--thanks::before{content:'Thanks';}
+.page-hero--404::before{content:'404';}
 .ph-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;}
 .ph-line{width:28px;height:1px;background:var(--gold-lt);}
 .ph-eyebrow span{font-family:'Cormorant Garamond',serif;font-size:0.65rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold-lt);font-weight:300;}
