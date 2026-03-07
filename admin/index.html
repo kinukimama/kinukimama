@@ -133,7 +133,7 @@ async function loadData() {
     if (!res.ok) throw new Error(`${res.status}`);
     const json = await res.json();
     fileSha = json.sha;
-    const decoded = JSON.parse(atob(json.content.replace(/\n/g, '')));
+    const decoded = JSON.parse(decodeURIComponent(escape(atob(json.content.replace(/\n/g, '')))));
     items = decoded.items || [];
     renderList();
     document.getElementById('loading-view').style.display = 'none';
