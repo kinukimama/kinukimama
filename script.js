@@ -247,7 +247,7 @@ if (newsBanner) {
     })
     .catch(() => {});
 }
-
+marked.use({ breaks: true });
 // NEWS LIST（news.html）
 const newsList = document.getElementById('news-list');
 if (newsList) {
