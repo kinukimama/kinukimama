@@ -205,7 +205,7 @@ function renderForm(item) {
       <div class="field">
         <label>タグ</label>
         <select id="f-tag">
-          ${['お知らせ','キャンペーン','休業','新メニュー'].map(t =>
+          ${['お知らせ','キャンペーン','休業','新メニュー','その他'].map(t =>
             `<option value="${t}" ${v.tag===t?'selected':''}>${t}</option>`
           ).join('')}
         </select>
