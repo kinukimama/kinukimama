@@ -302,7 +302,7 @@ nav.on .nav-cta{color:var(--gold);border-color:var(--gold);}
 footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:4rem;}
 .f-sub{font-size:0.6rem;letter-spacing:0.38em;color:rgba(201,170,124,0.5);display:block;margin-top:0.3rem;}
 .f-tag{font-size:0.72rem;color:rgba(253,250,245,0.42);line-height:2;margin-top:1.2rem;}
-.f-nav h4{font-family:'Cormorant Garamond',serif;font-size:0.62rem;letter-spacing:0.42em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem;}
+.f-nav h4,.f-info h4{font-family:'Cormorant Garamond',serif;font-size:0.62rem;letter-spacing:0.42em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem;}
 .f-nav ul{list-style:none;}
 .f-nav li{margin-bottom:0.55rem;}
 .f-nav a{font-size:0.74rem;color:rgba(253,250,245,0.52);transition:color 0.3s;}
