@@ -134,6 +134,11 @@
         <label class="cf-label" for="cf-message">お問い合わせ内容<span class="cf-req">*</span></label>
         <textarea class="cf-textarea" id="cf-message" name="お問い合わせ内容" required></textarea>
       </div>
+      
+      <!-- ハニーポット（ボット対策・ユーザーには非表示） -->
+      <div style="display:none;" aria-hidden="true">
+        <input type="text" name="_honeypot" id="cf-honeypot" tabindex="-1" autocomplete="off">
+      </div>  
 
       <p class="cf-captcha-note">このフォームはスパム対策により保護されています。<br>送信内容を確認の上、ご返信いたします。 <br>（返信までに数日お時間をいただく場合がございます）</p>
 

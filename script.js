@@ -195,7 +195,9 @@ const emailInput = document.getElementById('cf-email');
       if (telVal !== '') telErr.textContent = '';
       if (mobileVal !== '') mobileErr.textContent = '';
     }
-
+    // ハニーポットチェック
+    if (document.getElementById('cf-honeypot').value !== '') return;
+    
     if (valid) {
       btn.disabled = true;
       btn.textContent = '送信中...';
