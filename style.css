@@ -347,7 +347,7 @@ footer{background:#141E17;padding:5vmin 5vw;display:grid;grid-template-columns:1
   /* Drawer */
   .nav-drawer{display:flex;position:fixed;top:0;right:-280px;width:260px;height:100vh;background:#fff;z-index:255;padding:5rem 2.5rem 3rem;flex-direction:column;gap:0;transition:right 0.38s cubic-bezier(0.4,0,0.2,1);}
   .nav-drawer.open{right:0;}
-  .drawer-links{list-style:none;display:flex;flex-direction:column;gap:2.2rem;margin-bottom:3rem;}
+  .drawer-links{list-style:none;display:flex;flex-direction:column;margin-top:2.2rem;gap:2.2rem;margin-bottom:3rem;}
   .drawer-links a{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-mid);transition:color 0.3s;}
   .drawer-links a:hover{color:var(--gold);}
   .drawer-cta{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:0.82rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:0.7rem 1.8rem;text-align:center;transition:all 0.3s;}
