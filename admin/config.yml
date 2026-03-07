@@ -3,7 +3,7 @@ backend:
   repo: kinukimama/kinukimama
   branch: main
   app_id: Ov23litGoRlMfj0yVNx2
-  base_url: base_url: https://api.netlify.com
+  base_url: https://api.netlify.com
 
 locale: ja
 media_folder: images
